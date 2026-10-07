@@ -1,49 +1,677 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* ==========================================================================
+   PRINCE PATEL — PERSONAL PORTFOLIO DESIGN SYSTEM
+   Monochrome • Light + Dark
+   Headings: Montserrat
+   Body/UI: Montserrat
+   ========================================================================== */
+
+/* ==========================================================================
+   1. ROOT / DESIGN TOKENS
+   ========================================================================== */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ------------------------------------------------------------------------
+     FONT FAMILY
+     ------------------------------------------------------------------------ */
+
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Montserrat", sans-serif;
+
+  /* ------------------------------------------------------------------------
+     FONT WEIGHTS
+     ------------------------------------------------------------------------ */
+
+  --font-thin: 100;
+  --font-light: 200;
+  --font-normal: 300;
+  --font-regular: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* ------------------------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------------------------ */
+
+  --text-h1-size: 64px;
+  --text-h1-line: 1.1;
+  --text-h1-weight: 700;
+
+  --text-h2-size: 48px;
+  --text-h2-line: 1.15;
+  --text-h2-weight: 700;
+
+  --text-h3-size: 32px;
+  --text-h3-line: 1.2;
+  --text-h3-weight: 600;
+
+  --text-h4-size: 24px;
+  --text-h4-line: 1.25;
+  --text-h4-weight: 600;
+
+  --text-h5-size: 20px;
+  --text-h5-line: 1.3;
+  --text-h5-weight: 600;
+
+  --text-body-lg-size: 18px;
+  --text-body-lg-line: 1.6;
+
+  --text-body-size: 16px;
+  --text-body-line: 1.6;
+
+  --text-body-sm-size: 14px;
+  --text-body-sm-line: 1.5;
+
+  --text-caption-size: 12px;
+  --text-caption-line: 1.4;
+
+  --text-button-size: 14px;
+  --text-button-weight: 500;
+
+  /* ------------------------------------------------------------------------
+     SPACING
+     ------------------------------------------------------------------------ */
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ------------------------------------------------------------------------
+     LAYOUT
+     ------------------------------------------------------------------------ */
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+  --container-2xl: 1440px;
+
+  --section-gap: 96px;
+  --content-gap: 32px;
+  --component-gap: 16px;
+
+  /* ------------------------------------------------------------------------
+     BORDER RADIUS
+     ------------------------------------------------------------------------ */
+
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+  /* ------------------------------------------------------------------------
+     BORDER
+     ------------------------------------------------------------------------ */
+
+  --border-width: 1px;
+  --border-width-strong: 2px;
+
+  /* ==========================================================================
+     LIGHT MODE — GRAYSCALE
+     ========================================================================== */
+
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #eeeeee;
+  --gray-300: #e0e0e0;
+  --gray-400: #d0d0d0;
+  --gray-500: #bdbdbd;
+  --gray-600: #999999;
+  --gray-700: #737373;
+  --gray-800: #525252;
+  --gray-900: #262626;
+  --gray-950: #000000;
+
+  /* ==========================================================================
+     LIGHT MODE — SEMANTIC COLORS
+     ========================================================================== */
+
+  --color-background: #ffffff;
+
+  --color-surface: #f7f7f7;
+  --color-surface-2: #f0f0f0;
+  --color-surface-hover: #eeeeee;
+
+  --color-border: #e0e0e0;
+  --color-border-strong: #bdbdbd;
+
+  --color-text: #171717;
+  --color-text-secondary: #525252;
+  --color-text-muted: #737373;
+  --color-text-disabled: #a3a3a3;
+  --color-text-inverse: #ffffff;
+
+  --color-primary: #000000;
+  --color-primary-hover: #262626;
+  --color-primary-active: #171717;
+  --color-primary-text: #ffffff;
+
+  --color-secondary: #ffffff;
+  --color-secondary-hover: #f5f5f5;
+  --color-secondary-active: #eeeeee;
+  --color-secondary-text: #171717;
+
+  --color-focus: #000000;
+
+  --color-overlay: rgb(0 0 0 / 50%);
+
+  /* ==========================================================================
+     COMPONENT TOKENS — LIGHT
+     ========================================================================== */
+
+  /* Buttons */
+
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: var(--color-primary-text);
+  --button-primary-border: var(--color-primary);
+
+  --button-secondary-bg: var(--color-secondary);
+  --button-secondary-text: var(--color-secondary-text);
+  --button-secondary-border: var(--color-border-strong);
+
+  --button-tertiary-bg: var(--color-surface-2);
+  --button-tertiary-text: var(--color-text);
+  --button-tertiary-border: transparent;
+
+  /* Input */
+
+  --input-bg: var(--color-background);
+  --input-text: var(--color-text);
+  --input-placeholder: var(--color-text-muted);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-focus);
+
+  /* Card */
+
+  --card-bg: var(--color-background);
+  --card-border: var(--color-border);
+  --card-text: var(--color-text);
+
+  /* Badge */
+
+  --badge-bg: var(--color-surface-2);
+  --badge-text: var(--color-text);
+  --badge-border: var(--color-border);
+
+  /* Navigation */
+
+  --navbar-bg: var(--color-background);
+  --navbar-border: var(--color-border);
+  --navbar-text: var(--color-text);
+
+  /* Tabs */
+
+  --tab-text: var(--color-text-muted);
+  --tab-text-active: var(--color-text);
+  --tab-border-active: var(--color-text);
+
+  /* Tooltip */
+
+  --tooltip-bg: var(--color-primary);
+  --tooltip-text: var(--color-primary-text);
+
+  /* Alerts */
+
+  --alert-info-bg: #f0f0f0;
+  --alert-success-bg: #eeeeee;
+  --alert-warning-bg: #e5e5e5;
+  --alert-text: var(--color-text);
+
+  /* ------------------------------------------------------------------------
+     MOTION
+     ------------------------------------------------------------------------ */
+
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  /* Header */
+
+  --header-height: 72px;
+  --header-height-mobile: 60px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ==========================================================================
+   2. DARK MODE
+   ========================================================================== */
+
+[data-theme="dark"] {
+  /* ------------------------------------------------------------------------
+     DARK GRAYSCALE
+     ------------------------------------------------------------------------ */
+
+  --gray-50: #000000;
+  --gray-100: #0a0a0a;
+  --gray-200: #121212;
+  --gray-300: #1a1a1a;
+  --gray-400: #262626;
+  --gray-500: #404040;
+  --gray-600: #525252;
+  --gray-700: #737373;
+  --gray-800: #9e9e9e;
+  --gray-900: #d0d0d0;
+  --gray-950: #f5f5f5;
+
+  /* ------------------------------------------------------------------------
+     DARK SEMANTIC COLORS
+     ------------------------------------------------------------------------ */
+
+  --color-background: #000000;
+
+  --color-surface: #0d0d0d;
+  --color-surface-2: #171717;
+  --color-surface-hover: #1a1a1a;
+
+  --color-border: #262626;
+  --color-border-strong: #404040;
+
+  --color-text: #f5f5f5;
+  --color-text-secondary: #d0d0d0;
+  --color-text-muted: #a3a3a3;
+  --color-text-disabled: #737373;
+  --color-text-inverse: #000000;
+
+  --color-primary: #ffffff;
+  --color-primary-hover: #f5f5f5;
+  --color-primary-active: #e5e5e5;
+  --color-primary-text: #000000;
+
+  --color-secondary: #0d0d0d;
+  --color-secondary-hover: #171717;
+  --color-secondary-active: #262626;
+  --color-secondary-text: #f5f5f5;
+
+  --color-focus: #ffffff;
+
+  --color-overlay: rgb(0 0 0 / 70%);
+
+  /* ==========================================================================
+     COMPONENT TOKENS — DARK
+     ========================================================================== */
+
+  /* Buttons */
+
+  --button-primary-bg: var(--color-primary);
+  --button-primary-text: var(--color-primary-text);
+  --button-primary-border: var(--color-primary);
+
+  --button-secondary-bg: var(--color-secondary);
+  --button-secondary-text: var(--color-secondary-text);
+  --button-secondary-border: var(--color-border-strong);
+
+  --button-tertiary-bg: var(--color-surface-2);
+  --button-tertiary-text: var(--color-text);
+  --button-tertiary-border: transparent;
+
+  /* Input */
+
+  --input-bg: var(--color-surface);
+  --input-text: var(--color-text);
+  --input-placeholder: var(--color-text-muted);
+  --input-border: var(--color-border);
+  --input-border-focus: var(--color-focus);
+
+  /* Card */
+
+  --card-bg: var(--color-surface);
+  --card-border: var(--color-border);
+  --card-text: var(--color-text);
+
+  /* Badge */
+
+  --badge-bg: var(--color-surface-2);
+  --badge-text: var(--color-text);
+  --badge-border: var(--color-border-strong);
+
+  /* Navigation */
+
+  --navbar-bg: var(--color-background);
+  --navbar-border: var(--color-border);
+  --navbar-text: var(--color-text);
+
+  /* Tabs */
+
+  --tab-text: var(--color-text-muted);
+  --tab-text-active: var(--color-text);
+  --tab-border-active: var(--color-text);
+
+  /* Tooltip */
+
+  --tooltip-bg: #f5f5f5;
+  --tooltip-text: #000000;
+
+  /* Alerts */
+
+  --alert-info-bg: #171717;
+  --alert-success-bg: #1a1a1a;
+  --alert-warning-bg: #262626;
+  --alert-text: var(--color-text);
+}
+
+/* ==========================================================================
+   3. BASE STYLES
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
 html {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background: var(--color-background);
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: var(--font-medium);
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+
+  color: var(--color-text);
+  background: var(--color-background);
+
+  transition:
+    background-color var(--duration-normal) var(--ease-standard),
+    color var(--duration-normal) var(--ease-standard);
+}
+
+/* ==========================================================================
+   4. HEADINGS
+   ========================================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+
+  font-family: var(--font-heading);
+
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--text-h1-size);
+  line-height: var(--text-h1-line);
+  font-weight: var(--text-h1-weight);
+}
+
+h2 {
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-line);
+  font-weight: var(--text-h2-weight);
+}
+
+h3 {
+  font-size: var(--text-h3-size);
+  line-height: var(--text-h3-line);
+  font-weight: var(--text-h3-weight);
+}
+
+h4 {
+  font-size: var(--text-h4-size);
+  line-height: var(--text-h4-line);
+  font-weight: var(--text-h4-weight);
+}
+
+h5 {
+  font-size: var(--text-h5-size);
+  line-height: var(--text-h5-line);
+  font-weight: var(--text-h5-weight);
+}
+
+/* ==========================================================================
+   5. BODY TYPOGRAPHY
+   ========================================================================== */
+
+.body-large {
+  font-size: var(--text-body-lg-size);
+  line-height: var(--text-body-lg-line);
+}
+
+.body {
+  font-size: var(--text-body-size);
+  line-height: var(--text-body-line);
+}
+
+.body-small {
+  font-size: var(--text-body-sm-size);
+  line-height: var(--text-body-sm-line);
+}
+
+.caption {
+  font-size: var(--text-caption-size);
+  line-height: var(--text-caption-line);
+}
+
+/* ==========================================================================
+   6. BUTTON BASE
+   ========================================================================== */
+
+button {
+  font-family: var(--font-body);
+  font-size: var(--text-button-size);
+  font-weight: var(--text-button-weight);
+
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   7. INPUT BASE
+   ========================================================================== */
+
+input,
+textarea,
+select {
+  font-family: var(--font-body);
+  color: var(--input-text);
+  background: var(--input-bg);
+  border: var(--border-width) solid var(--input-border);
+}
+
+/* ==========================================================================
+   8. FOCUS
+   ========================================================================== */
+
+:focus-visible {
+  outline: var(--border-width-strong) solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   9. RESPONSIVE TYPOGRAPHY
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --text-h1-size: 44px;
+    --text-h2-size: 36px;
+    --text-h3-size: 28px;
+  }
+}
+
+/* ==========================================================================
+   10. OPTIONAL SYSTEM DARK MODE FALLBACK
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-background: #000000;
+
+    --color-surface: #0d0d0d;
+    --color-surface-2: #171717;
+    --color-surface-hover: #1a1a1a;
+
+    --color-border: #262626;
+    --color-border-strong: #404040;
+
+    --color-text: #f5f5f5;
+    --color-text-secondary: #d0d0d0;
+    --color-text-muted: #a3a3a3;
+    --color-text-disabled: #737373;
+
+    --color-primary: #ffffff;
+    --color-primary-hover: #f5f5f5;
+    --color-primary-active: #e5e5e5;
+    --color-primary-text: #000000;
+
+    --color-secondary: #0d0d0d;
+    --color-secondary-hover: #171717;
+    --color-secondary-active: #262626;
+    --color-secondary-text: #f5f5f5;
+
+    --color-focus: #ffffff;
+  }
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 var(--space-6);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+  justify-content: space-between;
+  padding: 0 var(--space-6);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.app-navigation-container {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.app-navigation {
+  display: flex;
+  list-style: none;
+  gap: var(--space-8);
+}
+
+.app-navigation a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+}
+
+.app-navigation a:hover,
+.app-navigation a:active {
+  color: var(--color-text-text);
+}
+
+.app-button {
+  font-family: var(--font-body);
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  padding: var(--space-3) var(--space-3);
+  border-radius: var(--radius-md);
+
+  color: var(--color-primary-text);
+  background-color: var(--color-primary);
+  border: var(--border-width) solid var(--color-primary);
+}
+
+.hero-section {
+  height: 100vh;
+  padding-top: calc(var(--header-height) + var(--space-6));
+}
+
+.hero-content {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 50%;
+  height: auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center bottom;
+}
+
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+
+.h-full {
   height: 100%;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+.weight-100 {
+  font-weight: var(--font-light);
 }
-
-body {
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.weight-200 {
+  font-weight: var(--font-normal);
 }
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+.weight-300 {
+  font-weight: var(--font-medium);
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+.weight-400 {
+  font-weight: var(--font-medium);
 }
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+.weight-500 {
+  font-weight: var(--font-medium);
+}
+.weight-600 {
+  font-weight: var(--font-semibold);
+}
+.weight-700 {
+  font-weight: var(--font-bold);
+}
+.weight-800 {
+  font-weight: var(--font-extrabold);
+}
+.weight-900 {
+  font-weight: var(--font-black);
 }
