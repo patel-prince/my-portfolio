@@ -564,16 +564,26 @@ select {
 .app-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   height: var(--header-height);
   justify-content: space-between;
   padding: 0 var(--space-6);
-  border-bottom: 1px solid var(--color-border);
-  background-color: var(--color-background);
+  /* border-bottom: 1px solid var(--color-border); */
+  /* background-color: var(--color-background); */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
+}
+
+.app-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
 }
 
 .app-navigation-container {
@@ -604,7 +614,7 @@ select {
   font-family: var(--font-body);
   text-decoration: none;
   font-weight: var(--font-medium);
-  padding: var(--space-3) var(--space-3);
+  padding: var(--space-3) var(--space-5);
   border-radius: var(--radius-md);
 
   color: var(--color-primary-text);
@@ -614,25 +624,33 @@ select {
 
 .hero-section {
   height: 100vh;
+  max-height: 700px;
   padding-top: calc(var(--header-height) + var(--space-6));
+  background-position: center bottom;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .hero-content {
   flex: 1;
-  width: 100%;
+  width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .hero-image {
+  flex: 1;
   width: 50%;
-  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .hero-image img {
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: auto;
   object-fit: contain;
   object-position: center bottom;
 }
@@ -649,16 +667,16 @@ select {
 }
 
 .weight-100 {
-  font-weight: var(--font-light);
+  font-weight: var(--font-thin);
 }
 .weight-200 {
-  font-weight: var(--font-normal);
+  font-weight: var(--font-light);
 }
 .weight-300 {
-  font-weight: var(--font-medium);
+  font-weight: var(--font-normal);
 }
 .weight-400 {
-  font-weight: var(--font-medium);
+  font-weight: var(--font-regular);
 }
 .weight-500 {
   font-weight: var(--font-medium);
@@ -674,4 +692,8 @@ select {
 }
 .weight-900 {
   font-weight: var(--font-black);
+}
+
+.max-w-500 {
+  max-width: 500px;
 }

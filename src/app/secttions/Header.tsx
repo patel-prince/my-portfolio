@@ -14,18 +14,20 @@ export const navLinks = [
 const Header = () => {
   return (
     <div className="app-header">
-      <div className="app-logo-container">
-        <Image src={Logo} alt="logo" height={32} loading="eager" priority />
-      </div>
-      <div className="app-navigation-container">
-        <ul className="app-navigation">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              <Link href={link.href}>{link.name}</Link>
-            </li>
-          ))}
-        </ul>
-        <button className="app-button">LET'S CONNECT</button>
+      <div className="app-header-container">
+        <div className="app-logo-container">
+          <Image src={Logo} alt="logo" height={32} loading="eager" priority />
+        </div>
+        <div className="app-navigation-container">
+          <ul className="app-navigation">
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                <Link href={link.href}>{link.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <button className="app-button">LET'S CONNECT</button>
+        </div>
       </div>
     </div>
   );
