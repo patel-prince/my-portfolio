@@ -8,14 +8,17 @@ interface StatItem {
 
 const STATS_DATA: StatItem[] = [
   { value: "9+", label: "Years Experience" },
-  { value: "20+", label: "Projects Delivered" },
-  { value: "3", label: "Global Clients" },
+  { value: "29+", label: "Projects Delivered" },
+  { value: "5", label: "Global Clients" },
   { value: "100%", label: "Focus on User Experience" },
 ];
 
 const HeroStats = () => {
   return (
-    <section className={styles.statsSection} aria-label="Key Highlights and Statistics">
+    <section
+      className={styles.statsSection}
+      aria-label="Key Highlights and Statistics"
+    >
       <div className="container">
         <div className={styles.statsCard}>
           {STATS_DATA.map((stat, index) => (

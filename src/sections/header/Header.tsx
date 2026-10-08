@@ -1,3 +1,6 @@
+"use client";
+
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/assets/logo-with-text.svg";
 import Link from "next/link";
@@ -13,8 +16,20 @@ export const navLinks = [
 ];
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${isScrolled ? styles.headerScrolled : ""}`}>
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
           <Image src={Logo} alt="logo" height={32} loading="eager" priority />
