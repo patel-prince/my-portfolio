@@ -71,7 +71,7 @@
 
 @media (max-width: 768px) {
   .statsSection {
-    margin-top: var(--space-6);
+    /* margin-top: var(--space-6); */
   }
 
   .statsCard {
@@ -92,12 +92,5 @@
 
   .statLabel {
     font-size: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .statsCard {
-    grid-template-columns: 1fr;
-    gap: var(--space-5);
   }
 }

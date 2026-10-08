@@ -61,6 +61,6 @@
     width: 100%;
     max-width: 100%;
     justify-content: flex-end;
-    padding-bottom: var(--space-12);
+    /* padding-bottom: var(--space-12); */
   }
 }
