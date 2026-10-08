@@ -12,7 +12,7 @@ const Hero = () => {
     >
       <div className="container flex h-full">
         <div className={styles.heroContent}>
-          <h2 className="text-8xl flex flex-col">
+          <h2 className={`${styles.heroTitle} text-8xl flex flex-col`}>
             <span className="text-center weight-600">DESIGNED</span>
             <span className="text-center weight-200">FOR PEOPLE</span>
             <span className="text-center weight-600">ENGINEERED</span>

@@ -515,9 +515,9 @@ select {
 
 @media (max-width: 768px) {
   :root {
-    --text-h1-size: 44px;
-    --text-h2-size: 36px;
-    --text-h3-size: 28px;
+    --text-h1-size: 48px;
+    --text-h2-size: 40px;
+    --text-h3-size: 36px;
   }
 }
 
@@ -572,11 +572,11 @@ select {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   border-radius: var(--radius-full);
-  color: #ffffff;
-  background-color: #000000;
+  color: var(--color-primary-text);
+  background-color: var(--color-primary);
   border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
-  padding: 4px 5px 4px 22px;
+  padding: 5px 6px 5px 22px;
   gap: var(--space-4);
   transition:
     transform var(--duration-fast) var(--ease-standard),
@@ -592,17 +592,22 @@ select {
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: var(--color-primary-text);
   flex-shrink: 0;
   transition:
     transform var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
+    background-color var(--duration-fast) var(--ease-standard);
 }
 
 .app-button:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
   transform: translateY(-1px);
+}
+
+.app-button:hover .app-button-icon {
+  transform: translateX(3px);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .app-button:active {
@@ -610,26 +615,30 @@ select {
 }
 
 .app-button-lg {
-  padding: 5px 5px 5px 28px;
+  padding: 6px 7px 6px 28px;
   font-size: 14px;
   letter-spacing: 2px;
   gap: var(--space-6);
 }
 
 .app-button-lg .app-button-icon {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
 }
 
 [data-theme="dark"] .app-button {
-  background-color: #000000;
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 [data-theme="dark"] .app-button .app-button-icon {
-  background-color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.12);
   color: #000000;
+}
+
+[data-theme="dark"] .app-button:hover .app-button-icon {
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .flex {

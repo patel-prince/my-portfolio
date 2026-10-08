@@ -2,6 +2,7 @@
 .hero-section {
   height: 100vh;
   max-height: 700px;
+  min-height: 600px;
   padding-top: calc(var(--header-height) + var(--space-6));
   background-position: center bottom;
   background-size: contain;
@@ -16,6 +17,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  justify-content: flex-end;
+  padding-bottom: calc(var(--space-12) + 50px);
 }
 
 .heroImage,
@@ -33,4 +36,31 @@
   height: auto;
   object-fit: contain;
   object-position: center bottom;
+}
+
+@media (max-width: 1400px) {
+  .heroSection,
+  .hero-section {
+    background-size: cover;
+  }
+}
+
+.heroTitle {
+  font-size: var(--text-h2-size);
+  line-height: var(--text-h2-line);
+}
+
+@media (max-width: 768px) {
+  .heroImage,
+  .hero-image {
+    display: none;
+  }
+
+  .heroContent,
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+    justify-content: flex-end;
+    padding-bottom: var(--space-12);
+  }
 }
