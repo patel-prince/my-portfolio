@@ -23,7 +23,7 @@ const Hero = () => {
             the hood.
           </p>
           <button className="app-button app-button-lg">
-            LET'S CONNECT
+            LET&apos;S CONNECT &rarr;
           </button>
         </div>
         <div className={styles.heroImage}>
