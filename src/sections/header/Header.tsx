@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Logo from "@/assets/logo-with-text.svg";
 import Link from "next/link";
+import styles from "./Header.module.css";
 
 export const navLinks = [
   { name: "Home", href: "/" },
@@ -13,13 +14,13 @@ export const navLinks = [
 
 const Header = () => {
   return (
-    <div className="app-header">
-      <div className="app-header-container">
-        <div className="app-logo-container">
+    <header className={styles.header}>
+      <div className={styles.headerContainer}>
+        <div className={styles.logoContainer}>
           <Image src={Logo} alt="logo" height={32} loading="eager" priority />
         </div>
-        <div className="app-navigation-container">
-          <ul className="app-navigation">
+        <nav className={styles.navigationContainer}>
+          <ul className={styles.navigation}>
             {navLinks.map((link) => (
               <li key={link.name}>
                 <Link href={link.href}>{link.name}</Link>
@@ -27,9 +28,9 @@ const Header = () => {
             ))}
           </ul>
           <button className="app-button">LET'S CONNECT</button>
-        </div>
+        </nav>
       </div>
-    </div>
+    </header>
   );
 };
 

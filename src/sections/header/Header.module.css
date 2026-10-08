@@ -1,0 +1,61 @@
+.header,
+.appHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 var(--space-6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.headerContainer,
+.appHeaderContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: auto;
+}
+
+.logoContainer,
+.appLogoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.navigationContainer,
+.appNavigationContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.navigation,
+.appNavigation {
+  display: flex;
+  list-style: none;
+  gap: var(--space-8);
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a,
+.appNavigation a {
+  text-decoration: none;
+  color: var(--color-text-muted);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.navigation a:hover,
+.navigation a:active,
+.appNavigation a:hover,
+.appNavigation a:active {
+  color: var(--color-text);
+}
