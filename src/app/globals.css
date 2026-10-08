@@ -482,6 +482,7 @@ button {
   font-family: var(--font-body);
   font-size: var(--text-button-size);
   font-weight: var(--text-button-weight);
+  border-radius: var(--radius-full);
 
   cursor: pointer;
 }
@@ -561,21 +562,74 @@ select {
   margin-right: auto;
 }
 .app-button {
-  font-family: var(--font-body);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-heading);
   text-decoration: none;
-  font-weight: var(--font-medium);
-  padding: var(--space-3) var(--space-5);
-  border-radius: var(--radius-md);
-
-  color: var(--color-primary-text);
-  background-color: var(--color-primary);
-  border: var(--border-width) solid var(--color-primary);
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: var(--radius-full);
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   cursor: pointer;
+  padding: 4px 5px 4px 22px;
+  gap: var(--space-4);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.app-button-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #000000;
+  flex-shrink: 0;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.app-button:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.app-button:active {
+  transform: translateY(0);
 }
 
 .app-button-lg {
-  padding: var(--space-4) var(--space-8);
-  font-size: var(--text-body-size);
+  padding: 5px 5px 5px 28px;
+  font-size: 14px;
+  letter-spacing: 2px;
+  gap: var(--space-6);
+}
+
+.app-button-lg .app-button-icon {
+  width: 40px;
+  height: 40px;
+}
+
+[data-theme="dark"] .app-button {
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+[data-theme="dark"] .app-button .app-button-icon {
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .flex {

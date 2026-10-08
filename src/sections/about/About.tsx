@@ -65,7 +65,10 @@ const About = () => {
               download="Prince_Patel_CV.pdf"
               className={`app-button app-button-lg ${styles.aboutBtn}`}
             >
-              DOWNLOAD CV <FiDownload size={16} />
+              <span>DOWNLOAD CV</span>
+              <span className="app-button-icon" aria-hidden="true">
+                <FiDownload size={18} />
+              </span>
             </a>
           </div>
 

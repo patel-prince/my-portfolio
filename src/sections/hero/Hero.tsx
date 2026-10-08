@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HeroImage from "@/assets/prince.png";
 import HeroBg from "@/assets/hero-bg.png";
+import { FiArrowRight } from "react-icons/fi";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
@@ -23,7 +24,10 @@ const Hero = () => {
             the hood.
           </p>
           <button className="app-button app-button-lg">
-            LET&apos;S CONNECT &rarr;
+            <span>LET&apos;S CONNECT</span>
+            <span className="app-button-icon" aria-hidden="true">
+              <FiArrowRight size={18} />
+            </span>
           </button>
         </div>
         <div className={styles.heroImage}>

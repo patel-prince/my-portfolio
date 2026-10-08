@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/assets/logo-with-text.svg";
 import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 import styles from "./Header.module.css";
 
 export const navLinks = [
@@ -42,7 +43,12 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button className="app-button">LET'S CONNECT</button>
+          <button className="app-button">
+            <span>LET&apos;S CONNECT</span>
+            <span className="app-button-icon" aria-hidden="true">
+              <FiArrowRight size={14} />
+            </span>
+          </button>
         </nav>
       </div>
     </header>
