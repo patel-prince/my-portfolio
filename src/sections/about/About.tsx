@@ -1,4 +1,4 @@
-import { FiCode, FiCloud, FiShield, FiLayout } from "react-icons/fi";
+import { FiCode, FiCloud, FiShield, FiLayout, FiDownload } from "react-icons/fi";
 import styles from "./About.module.css";
 
 interface AboutFeature {
@@ -60,9 +60,13 @@ const About = () => {
               engineering converge. Refined by design. Built to perform.
             </p>
 
-            <button className={`app-button app-button-lg ${styles.aboutBtn}`}>
-              MORE ABOUT ME &rarr;
-            </button>
+            <a
+              href="/resume.pdf"
+              download="Prince_Patel_CV.pdf"
+              className={`app-button app-button-lg ${styles.aboutBtn}`}
+            >
+              DOWNLOAD CV <FiDownload size={16} />
+            </a>
           </div>
 
           {/* Right Column: 2x2 Feature Cross-Grid */}
