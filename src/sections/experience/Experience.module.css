@@ -1,0 +1,484 @@
+/* ==========================================================================
+   EXPERIENCE SECTION STYLES
+   Monochrome, editorial typography, thin borders, matching mockup
+   ========================================================================== */
+
+.experienceSection {
+  padding: var(--space-20) 0;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+/* --------------------------------------------------------------------------
+   EYEBROW / TAGLINE (Matching About Me)
+   -------------------------------------------------------------------------- */
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(to right, var(--color-surface-2), transparent);
+  padding: 0px 24px 0px 0px;
+}
+
+.tagline::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 26px;
+  background: var(--color-text);
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   MAIN 2-COLUMN LAYOUT
+   Left: Impact Hero Card
+   Right: 5 Experience Cards
+   -------------------------------------------------------------------------- */
+
+.experienceLayout {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: IMPACT HERO CARD (with waves.png background)
+   -------------------------------------------------------------------------- */
+
+.impactCard {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid var(--color-border);
+  background-color: #f7f7f8;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 44px 36px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.impactContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100%;
+}
+
+.impactTitle {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-heading);
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: var(--space-5);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.impactTitleLight {
+  font-weight: 300;
+}
+
+.impactTitleBold {
+  font-weight: 700;
+}
+
+.impactDescription {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 0 32px 0;
+  max-width: 270px;
+}
+
+.resumeBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 13px 26px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid #000000;
+  cursor: pointer;
+  white-space: nowrap;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.resumeBtn :global(.app-button-icon) {
+  background: transparent !important;
+  color: #ffffff !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resumeBtn:hover {
+  transform: translateY(-2px);
+  background-color: #1a1a1a;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: EXPERIENCE CARDS GRID
+   -------------------------------------------------------------------------- */
+
+.experienceGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+/* Common Card Header & Arrow */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+}
+
+.cardNumber {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+}
+
+.arrowIconWrapper {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  flex-shrink: 0;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+/* --------------------------------------------------------------------------
+   01: FEATURED FULL-WIDTH CARD
+   -------------------------------------------------------------------------- */
+
+.featuredCard {
+  grid-column: 1 / -1;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.featuredCard:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.featuredCard:hover .arrowIconWrapper {
+  border-color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.featuredBody {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  margin-top: 4px;
+}
+
+.featuredMain {
+  flex: 1;
+}
+
+.featuredMain .companyName {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.25;
+  margin: 0 0 6px 0;
+}
+
+.featuredMain .roleName {
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.featuredDivider {
+  width: 1px;
+  height: 50px;
+  background-color: var(--color-border);
+  margin: 0 var(--space-6);
+  flex-shrink: 0;
+}
+
+.featuredMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+  min-width: 210px;
+}
+
+/* --------------------------------------------------------------------------
+   02 - 05: 2x2 GRID CARDS
+   -------------------------------------------------------------------------- */
+
+.experienceCard {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.experienceCard:hover {
+  border-color: var(--color-border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.experienceCard:hover .arrowIconWrapper {
+  border-color: var(--color-text);
+  background-color: var(--color-surface);
+}
+
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: var(--space-5);
+}
+
+.companyName {
+  font-family: var(--font-heading);
+  font-size: 18.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  margin: 0 0 6px 0;
+}
+
+.companySubtitle {
+  display: block;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.roleName {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-4);
+  font-family: var(--font-body);
+  font-size: 13.5px;
+  color: var(--color-text);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  white-space: nowrap;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.metaIcon {
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.metaDivider {
+  color: var(--color-border-strong);
+  margin: 0 4px;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME ADAPTATION
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .impactCard {
+  background-color: #121212;
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .resumeBtn {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .resumeBtn :global(.app-button-icon) {
+  color: #000000 !important;
+}
+
+[data-theme="dark"] .resumeBtn:hover {
+  background-color: #e5e5e5;
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .experienceLayout {
+    grid-template-columns: 310px 1fr;
+    gap: var(--space-5);
+  }
+
+  .impactCard {
+    padding: 36px 28px;
+  }
+
+  .impactTitle {
+    font-size: 32px;
+  }
+
+  .featuredMain .companyName {
+    font-size: 21px;
+  }
+
+  .companyName {
+    font-size: 17.5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .experienceLayout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .impactCard {
+    min-height: 360px;
+    background-position: right bottom;
+  }
+
+  .impactDescription {
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 768px) {
+  .experienceSection {
+    padding: var(--space-16) 0;
+  }
+
+  .experienceGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .featuredCard {
+    padding: 24px 20px;
+  }
+
+  .featuredBody {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-4);
+  }
+
+  .featuredDivider {
+    display: none;
+  }
+
+  .featuredMeta {
+    width: 100%;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-4);
+  }
+
+  .experienceCard {
+    padding: 22px 20px;
+  }
+
+  .impactCard {
+    padding: 32px 24px;
+    min-height: 320px;
+  }
+
+  .impactTitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardMeta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .metaDivider {
+    display: none;
+  }
+}
