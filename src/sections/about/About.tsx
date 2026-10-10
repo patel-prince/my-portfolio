@@ -55,9 +55,12 @@ const About = () => {
             </h2>
 
             <p className={styles.description}>
-              I’m Prince Patel, a Senior Frontend Engineer with 9+ years of
-              experience. I craft digital experiences where form, function, and
-              engineering converge. Refined by design. Built to perform.
+              I&apos;m Prince Patel, a Full Stack Developer with 9+ years of
+              experience. I build digital experiences where product thinking,
+              frontend craftsmanship, and backend engineering come together.
+              From intuitive interfaces to scalable APIs and cloud services, I
+              turn complex requirements into reliable products built to perform
+              and grow.
             </p>
 
             <a

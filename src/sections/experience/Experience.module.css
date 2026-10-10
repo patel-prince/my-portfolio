@@ -61,19 +61,40 @@
   position: relative;
   border-radius: 16px;
   border: 1px solid var(--color-border);
-  background-color: #f7f7f8;
-  background-position: center bottom;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-color: var(--color-surface);
   padding: 44px 36px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
+.impactCardBg {
+  position: absolute;
+  inset: 0;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.impactCardOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.94) 0%,
+    rgba(255, 255, 255, 0.75) 45%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
 .impactContent {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -335,6 +356,7 @@
   gap: var(--space-2);
   border-top: 1px solid var(--color-border);
   padding-top: var(--space-4);
+  margin-top: auto;
   font-family: var(--font-body);
   font-size: 13.5px;
   color: var(--color-text);
@@ -368,6 +390,19 @@
 [data-theme="dark"] .impactCard {
   background-color: #121212;
   border-color: var(--color-border);
+}
+
+[data-theme="dark"] .impactCardBg {
+  opacity: 0.2;
+}
+
+[data-theme="dark"] .impactCardOverlay {
+  background: linear-gradient(
+    180deg,
+    rgba(18, 18, 18, 0.95) 0%,
+    rgba(18, 18, 18, 0.75) 45%,
+    rgba(18, 18, 18, 0.2) 100%
+  );
 }
 
 [data-theme="dark"] .resumeBtn {
@@ -419,6 +454,9 @@
 
   .impactCard {
     min-height: 360px;
+  }
+
+  .impactCardBg {
     background-position: right bottom;
   }
 

@@ -78,10 +78,13 @@ const Experience = () => {
         {/* Main Experience Layout: Left Banner Card + Right Experience Grid */}
         <div className={styles.experienceLayout}>
           {/* Left Column: Impact Hero Card */}
-          <div
-            className={styles.impactCard}
-            style={{ backgroundImage: `url(${WavesBg.src})` }}
-          >
+          <div className={styles.impactCard}>
+            <div
+              className={styles.impactCardBg}
+              style={{ backgroundImage: `url(${WavesBg.src})` }}
+              aria-hidden="true"
+            />
+            <div className={styles.impactCardOverlay} aria-hidden="true" />
             <div className={styles.impactContent}>
               <h2 id="experience-heading" className={styles.impactTitle}>
                 <span className={styles.impactTitleLight}>Where I’ve</span>
