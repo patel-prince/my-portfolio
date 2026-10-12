@@ -1,0 +1,359 @@
+/* ==========================================================================
+   CONTACT (LET'S CONNECT) SECTION & FOOTER
+   2-Column divider layout, monochrome aesthetics, editorial typography
+   ========================================================================== */
+
+.contactSection {
+  padding: var(--space-20) 0 var(--space-8) 0;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+/* --------------------------------------------------------------------------
+   TAGLINE (Matching About & Experience)
+   -------------------------------------------------------------------------- */
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(to right, var(--color-surface-2), transparent);
+  padding: 0px 24px 0px 0px;
+}
+
+.tagline::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 26px;
+  background: var(--color-text);
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   MAIN 2-COLUMN GRID (Divided by central hairline separator)
+   -------------------------------------------------------------------------- */
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+/* --------------------------------------------------------------------------
+   LEFT COLUMN: CONTENT & SOCIAL
+   -------------------------------------------------------------------------- */
+
+.leftColumn {
+  padding-right: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--color-text);
+  margin: 0 0 var(--space-6) 0;
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-text-secondary);
+  margin: 0 0 44px 0;
+  max-width: 480px;
+}
+
+/* Social Icon Buttons */
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.socialBtn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard);
+}
+
+.socialBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-text);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+/* --------------------------------------------------------------------------
+   RIGHT COLUMN: CONTACT FORM
+   -------------------------------------------------------------------------- */
+
+.rightColumn {
+  padding-left: 56px;
+  border-left: 1px solid var(--color-border);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.fieldLabel {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.inputField,
+.textareaField {
+  width: 100%;
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  color: var(--color-text);
+  transition:
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.inputField::placeholder,
+.textareaField::placeholder {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.inputField:focus,
+.textareaField:focus {
+  outline: none;
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05);
+}
+
+.textareaField {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+/* Pill Submit Button */
+.submitButton {
+  width: 100%;
+  height: 52px;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  margin-top: 4px;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.submitButton:hover {
+  background-color: #262626;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.submitButton:hover .submitIcon {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER BAR (Separator line & Brand info)
+   -------------------------------------------------------------------------- */
+
+.footerDivider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+  margin-top: 88px;
+}
+
+.footerBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 0 16px 0;
+}
+
+.footerBrand {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.footerInfo {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME ADAPTATION
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .inputField,
+[data-theme="dark"] .textareaField {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+[data-theme="dark"] .inputField:focus,
+[data-theme="dark"] .textareaField:focus {
+  border-color: var(--color-text);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .submitButton {
+  background-color: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+[data-theme="dark"] .submitButton:hover {
+  background-color: #e5e5e5;
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .socialBtn:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 992px) {
+  .contactGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .leftColumn {
+    padding-right: 0;
+  }
+
+  .heading {
+    font-size: 38px;
+  }
+
+  .description {
+    margin-bottom: var(--space-8);
+  }
+
+  .rightColumn {
+    padding-left: 0;
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-10);
+  }
+
+  .footerDivider {
+    margin-top: 64px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contactSection {
+    padding: var(--space-16) 0 var(--space-6) 0;
+  }
+
+  .heading {
+    font-size: 32px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-bottom: 0;
+  }
+
+  .footerBar {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+  }
+}
