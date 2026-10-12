@@ -165,7 +165,7 @@ const CATEGORIES: Category[] = [
       {
         name: "Antigravity",
         experience: "1+ YEARS",
-        logo: "/antigravity.svg",
+        logo: "https://svgl.app/library/antigravity.svg",
       },
     ],
   },
