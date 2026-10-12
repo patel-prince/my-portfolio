@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
-import { FiMail, FiArrowRight } from "react-icons/fi";
+import { FiMail, FiSend } from "react-icons/fi";
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
@@ -179,9 +179,9 @@ const Contact: React.FC = () => {
                 className={`app-button app-button-lg ${styles.submitButton}`}
                 aria-label="Send message"
               >
-                <span>{isSubmitted ? "MESSAGE SENT!" : "LET'S TALK"}</span>
+                <span>{isSubmitted ? "MESSAGE SENT!" : "SEND"}</span>
                 <span className="app-button-icon" aria-hidden="true">
-                  <FiArrowRight size={18} />
+                  <FiSend size={18} />
                 </span>
               </button>
             </form>
