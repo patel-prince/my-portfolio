@@ -3,6 +3,7 @@ import Hero from "@/sections/hero";
 import HeroStats from "@/sections/hero-stats";
 import About from "@/sections/about";
 import Experience from "@/sections/experience";
+import TechnicalExpertise from "@/sections/technical-expertise";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <HeroStats />
         <About />
         <Experience />
+        <TechnicalExpertise />
       </main>
     </>
   );

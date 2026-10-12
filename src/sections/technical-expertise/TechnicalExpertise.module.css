@@ -1,0 +1,423 @@
+/* ==========================================================================
+   TECHNICAL EXPERTISE (TOOLS & STACK) SECTION STYLES
+   Monochrome, editorial typography, matching mockups
+   ========================================================================== */
+
+.expertiseSection {
+  padding: var(--space-20) 0;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+/* --------------------------------------------------------------------------
+   TAGLINE (Matching About & Experience)
+   -------------------------------------------------------------------------- */
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(to right, var(--color-surface-2), transparent);
+  padding: 0px 24px 0px 0px;
+}
+
+.tagline::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 26px;
+  background: var(--color-text);
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER ROW (Title on Left, Curated Summary on Right)
+   -------------------------------------------------------------------------- */
+
+.headerRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-8);
+  margin-bottom: var(--space-10);
+}
+
+.headerLeft {
+  flex: 1;
+  max-width: 620px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  line-height: 1.15;
+  margin: 0 0 var(--space-3) 0;
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.titleLight {
+  font-weight: 300;
+}
+
+.titleBold {
+  font-weight: 700;
+}
+
+.sectionDescription {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.headerRight {
+  flex-shrink: 0;
+  max-width: 380px;
+}
+
+.summaryBox {
+  border-left: 1px solid var(--color-border);
+  padding-left: var(--space-6);
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.summaryText {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   TAB NAVIGATION BAR WITH SCROLL BUTTONS
+   -------------------------------------------------------------------------- */
+
+.tabBarWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+  position: relative;
+}
+
+.scrollArrowBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    transform var(--duration-fast) var(--ease-standard);
+}
+
+.scrollArrowBtn:hover {
+  border-color: var(--color-text);
+  background-color: var(--color-surface);
+  transform: scale(1.05);
+}
+
+.tabsList {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 4px 2px;
+  flex: 1;
+}
+
+.tabsList::-webkit-scrollbar {
+  display: none;
+}
+
+.tabBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.tabBtn:hover:not(.activeTab) {
+  background-color: var(--color-surface);
+  border-color: var(--color-border-strong);
+}
+
+.tabIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  color: inherit;
+  flex-shrink: 0;
+}
+
+.tabLabel {
+  letter-spacing: 0.2px;
+}
+
+.activeTab {
+  background-color: #000000;
+  border-color: #000000;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* --------------------------------------------------------------------------
+   CONTENT CARD
+   -------------------------------------------------------------------------- */
+
+.contentCard {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 36px 40px;
+  transition: border-color var(--duration-fast) var(--ease-standard);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: 36px;
+  padding-bottom: var(--space-5);
+}
+
+.cardIconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.cardHeaderInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.cardHeaderTitle {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.3;
+}
+
+.cardHeaderDesc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   TECHNOLOGY GRID
+   -------------------------------------------------------------------------- */
+
+.techGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--space-6) var(--space-4);
+}
+
+.techCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 12px;
+  border-radius: 12px;
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.techCard:hover {
+  transform: translateY(-4px);
+  background-color: var(--color-surface);
+}
+
+.techLogoWrapper {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.techLogo {
+  width: 100%;
+  height: 100%;
+  max-width: 46px;
+  max-height: 46px;
+  object-fit: contain;
+  display: block;
+}
+
+.techName {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 5px 0;
+  line-height: 1.25;
+  white-space: nowrap;
+}
+
+.techExperience {
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME ADAPTATION
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .activeTab {
+  background-color: #ffffff;
+  border-color: #ffffff;
+  color: #000000;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .techCard img[src*="nextjs"],
+[data-theme="dark"] .techCard img[src*="github"],
+[data-theme="dark"] .techCard img[src*="devices"] {
+  filter: invert(1);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+  .techGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .headerRow {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .headerRight {
+    max-width: 100%;
+  }
+
+  .summaryBox {
+    border-left: none;
+    border-top: 1px solid var(--color-border);
+    padding-left: 0;
+    padding-top: var(--space-4);
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .contentCard {
+    padding: 28px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .expertiseSection {
+    padding: var(--space-16) 0;
+  }
+
+  .sectionTitle {
+    font-size: 34px;
+  }
+
+  .techGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5) var(--space-3);
+  }
+
+  .techLogoWrapper {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 10px;
+  }
+
+  .techLogo {
+    max-width: 38px;
+    max-height: 38px;
+  }
+
+  .techName {
+    font-size: 13.5px;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 480px) {
+  .techGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cardHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: 24px;
+  }
+
+  .scrollArrowBtn {
+    display: none;
+  }
+}
