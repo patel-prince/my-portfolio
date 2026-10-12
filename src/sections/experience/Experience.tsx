@@ -98,11 +98,11 @@ const Experience = () => {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`app-button ${styles.resumeBtn}`}
+                className={`app-button app-button-lg ${styles.resumeBtn}`}
               >
                 <span>VIEW FULL RESUME</span>
                 <span className="app-button-icon" aria-hidden="true">
-                  <FiArrowRight size={14} />
+                  <FiArrowRight size={18} />
                 </span>
               </a>
             </div>

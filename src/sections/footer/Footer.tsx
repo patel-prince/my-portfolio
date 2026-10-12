@@ -10,8 +10,8 @@ import styles from "./Footer.module.css";
 const FOOTER_NAV_LINKS = [
   { name: "ABOUT", href: "#about" },
   { name: "EXPERIENCE", href: "#experience" },
-  { name: "TOOLS & STACK", href: "#skills" },
-  { name: "HOW I WORK", href: "#approach" },
+  { name: "TOOLS & STACK", href: "#tools-stack" },
+  { name: "HOW I WORK", href: "#how-i-work" },
   { name: "CONTACT", href: "#contact" },
 ];
 

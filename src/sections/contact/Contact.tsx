@@ -176,11 +176,11 @@ const Contact: React.FC = () => {
               {/* Row 4: Submit Button */}
               <button
                 type="submit"
-                className={styles.submitButton}
+                className={`app-button app-button-lg ${styles.submitButton}`}
                 aria-label="Send message"
               >
                 <span>{isSubmitted ? "MESSAGE SENT!" : "LET'S TALK"}</span>
-                <span className={styles.submitIcon} aria-hidden="true">
+                <span className="app-button-icon" aria-hidden="true">
                   <FiArrowRight size={18} />
                 </span>
               </button>

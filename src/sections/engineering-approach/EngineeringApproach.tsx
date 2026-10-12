@@ -46,10 +46,11 @@ const APPROACH_STEPS: ApproachStep[] = [
 const EngineeringApproach: React.FC = () => {
   return (
     <section
-      id="approach"
+      id="how-i-work"
       className={styles.approachSection}
       aria-labelledby="approach-heading"
     >
+      <span id="approach" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
       <div className="container">
         {/* Section Tagline matching About & Experience */}
         <div className={styles.tagline}>

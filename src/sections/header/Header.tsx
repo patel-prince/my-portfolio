@@ -8,12 +8,11 @@ import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
 import styles from "./Header.module.css";
 
 export const navLinks = [
-  { name: "Home", href: "/" },
   { name: "About", href: "#about" },
   { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Testimonials", href: "#testimonials" },
-  { name: "Contact", href: "/#contact" },
+  { name: "Tools & Stack", href: "#tools-stack" },
+  { name: "How I Work", href: "#how-i-work" },
+  { name: "Contact", href: "#contact" },
 ];
 
 const Header = () => {
@@ -80,12 +79,12 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <button className={`app-button ${styles.headerBtn}`}>
+          <Link href="#contact" className={`app-button ${styles.headerBtn}`}>
             <span>LET&apos;S CONNECT</span>
             <span className="app-button-icon" aria-hidden="true">
               <FiArrowRight size={14} />
             </span>
-          </button>
+          </Link>
           <button
             type="button"
             className={styles.hamburgerBtn}
@@ -125,8 +124,8 @@ const Header = () => {
             ))}
           </ul>
           <div className={styles.mobileDrawerFooter}>
-            <a
-              href="/#contact"
+            <Link
+              href="#contact"
               className="app-button"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -134,7 +133,7 @@ const Header = () => {
               <span className="app-button-icon" aria-hidden="true">
                 <FiArrowRight size={14} />
               </span>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -132,42 +132,6 @@
 .resumeBtn {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 12px;
-  padding: 13px 26px;
-  background-color: #000000;
-  color: #ffffff;
-  border-radius: 9999px;
-  font-family: var(--font-heading);
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  text-decoration: none;
-  border: 1px solid #000000;
-  cursor: pointer;
-  white-space: nowrap;
-  transition:
-    transform var(--duration-fast) var(--ease-standard),
-    background-color var(--duration-fast) var(--ease-standard),
-    box-shadow var(--duration-fast) var(--ease-standard);
-}
-
-.resumeBtn :global(.app-button-icon) {
-  background: transparent !important;
-  color: #ffffff !important;
-  width: auto !important;
-  height: auto !important;
-  border-radius: 0 !important;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.resumeBtn:hover {
-  transform: translateY(-2px);
-  background-color: #1a1a1a;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
 }
 
 /* --------------------------------------------------------------------------
@@ -405,19 +369,6 @@
   );
 }
 
-[data-theme="dark"] .resumeBtn {
-  background-color: #ffffff;
-  color: #000000;
-  border-color: #ffffff;
-}
-
-[data-theme="dark"] .resumeBtn :global(.app-button-icon) {
-  color: #000000 !important;
-}
-
-[data-theme="dark"] .resumeBtn:hover {
-  background-color: #e5e5e5;
-}
 
 /* --------------------------------------------------------------------------
    RESPONSIVE DESIGN

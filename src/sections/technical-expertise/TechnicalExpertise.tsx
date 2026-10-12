@@ -174,10 +174,11 @@ const CATEGORIES: Category[] = [
 const TechnicalExpertise: React.FC = () => {
   return (
     <section
-      id="skills"
+      id="tools-stack"
       className={styles.expertiseSection}
       aria-labelledby="technical-expertise-heading"
     >
+      <span id="skills" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
       <div className="container">
         {/* Section Tagline matching About & Experience */}
         <div className={styles.tagline}>

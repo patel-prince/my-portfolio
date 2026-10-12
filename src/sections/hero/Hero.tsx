@@ -23,12 +23,12 @@ const Hero = () => {
             experiences that are simple on the surface but powerfull under
             the hood.
           </p>
-          <button className="app-button app-button-lg">
+          <a href="#contact" className="app-button app-button-lg">
             <span>LET&apos;S CONNECT</span>
             <span className="app-button-icon" aria-hidden="true">
               <FiArrowRight size={18} />
             </span>
-          </button>
+          </a>
         </div>
         <div className={styles.heroImage}>
           <Image src={HeroImage} alt="hero" priority />
