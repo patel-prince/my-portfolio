@@ -1,0 +1,233 @@
+/* ==========================================================================
+   FOOTER SECTION
+   Clean editorial typography, logo, navigation links, and back-to-top button
+   ========================================================================== */
+
+.footer {
+  padding: 48px 0 32px 0;
+  background-color: var(--color-background);
+  border-top: 1px solid var(--color-border);
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   TOP ROW: LOGO, NAV LINKS, BACK TO TOP
+   -------------------------------------------------------------------------- */
+
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+}
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 36px;
+}
+
+.navLink {
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.navLink:hover {
+  color: var(--color-text-muted);
+}
+
+/* Back To Top Button */
+.backToTopBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+.backToTopCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.backToTopText {
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.backToTopBtn:hover .backToTopCircle {
+  border-color: var(--color-text);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.backToTopBtn:hover .backToTopText {
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   THIN HORIZONTAL DIVIDER
+   -------------------------------------------------------------------------- */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+  margin: 36px 0 24px 0;
+}
+
+/* --------------------------------------------------------------------------
+   BOTTOM ROW: COPYRIGHT & CREDITS
+   -------------------------------------------------------------------------- */
+
+.bottomRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.copyright {
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  color: var(--color-text-secondary);
+}
+
+.credits {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a919e;
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME ADAPTATION
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .logo {
+  filter: invert(1);
+}
+
+[data-theme="dark"] .credits {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+[data-theme="dark"] .backToTopBtn:hover .backToTopCircle {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .navList {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 860px) {
+  .topRow {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .navContainer {
+    order: 3;
+    width: 100%;
+  }
+
+  .navList {
+    width: 100%;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    padding: 36px 0 28px 0;
+  }
+
+  .topRow {
+    gap: 16px;
+  }
+
+  .navList {
+    gap: 12px 18px;
+  }
+
+  .navLink {
+    font-size: 11.5px;
+  }
+
+  .backToTopText {
+    font-size: 10.5px;
+  }
+
+  .divider {
+    margin: 28px 0 20px 0;
+  }
+
+  .bottomRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .copyright,
+  .credits {
+    font-size: 11.5px;
+  }
+}

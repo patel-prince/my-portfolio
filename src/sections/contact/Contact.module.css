@@ -230,41 +230,6 @@
   transform: translateX(3px);
 }
 
-/* --------------------------------------------------------------------------
-   FOOTER BAR (Separator line & Brand info)
-   -------------------------------------------------------------------------- */
-
-.footerDivider {
-  width: 100%;
-  height: 1px;
-  background-color: var(--color-border);
-  margin-top: 88px;
-}
-
-.footerBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 32px 0 16px 0;
-}
-
-.footerBrand {
-  font-family: var(--font-heading);
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-text);
-}
-
-.footerInfo {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--color-text-secondary);
-}
 
 /* --------------------------------------------------------------------------
    DARK THEME ADAPTATION
@@ -326,14 +291,9 @@
     padding-top: var(--space-10);
   }
 
-  .footerDivider {
-    margin-top: 64px;
-  }
-}
-
 @media (max-width: 600px) {
   .contactSection {
-    padding: var(--space-16) 0 var(--space-6) 0;
+    padding: var(--space-16) 0 var(--space-12) 0;
   }
 
   .heading {
@@ -348,12 +308,5 @@
     grid-template-columns: 1fr;
     gap: 0;
     margin-bottom: 0;
-  }
-
-  .footerBar {
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    text-align: center;
   }
 }

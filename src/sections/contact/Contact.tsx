@@ -187,15 +187,6 @@ const Contact: React.FC = () => {
             </form>
           </div>
         </div>
-
-        {/* Bottom Horizontal Divider & Footer Bar */}
-        <div className={styles.footerDivider} aria-hidden="true" />
-        <footer className={styles.footerBar}>
-          <div className={styles.footerBrand}>PRINCE PATEL</div>
-          <div className={styles.footerInfo}>
-            FULL STACK ENGINEER &middot; 9+ YEARS
-          </div>
-        </footer>
       </div>
     </section>
   );
