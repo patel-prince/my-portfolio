@@ -4,3 +4,4 @@ export { default as HeroStats } from "./hero-stats";
 export { default as About } from "./about";
 export { default as Experience } from "./experience";
 export { default as TechnicalExpertise } from "./technical-expertise";
+export { default as EngineeringApproach } from "./engineering-approach";

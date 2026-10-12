@@ -4,6 +4,7 @@ import HeroStats from "@/sections/hero-stats";
 import About from "@/sections/about";
 import Experience from "@/sections/experience";
 import TechnicalExpertise from "@/sections/technical-expertise";
+import EngineeringApproach from "@/sections/engineering-approach";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <About />
         <Experience />
         <TechnicalExpertise />
+        <EngineeringApproach />
       </main>
     </>
   );

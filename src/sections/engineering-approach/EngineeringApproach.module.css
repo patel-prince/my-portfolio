@@ -1,0 +1,270 @@
+/* ==========================================================================
+   ENGINEERING APPROACH (HOW I WORK) SECTION
+   Clean monochrome card architecture, editorial typography & icons
+   ========================================================================== */
+
+.approachSection {
+  padding: var(--space-20) 0;
+  position: relative;
+  background-color: var(--color-background);
+}
+
+/* --------------------------------------------------------------------------
+   EYEBROW / TAGLINE (Matching About & Experience)
+   -------------------------------------------------------------------------- */
+
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(to right, var(--color-surface-2), transparent);
+  padding: 0px 24px 0px 0px;
+}
+
+.tagline::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 26px;
+  background: var(--color-text);
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION HEADER
+   -------------------------------------------------------------------------- */
+
+.headerRow {
+  margin-bottom: var(--space-12);
+  max-width: 620px;
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 14px 0;
+  color: var(--color-text);
+  letter-spacing: -0.025em;
+}
+
+.sectionDescription {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   4-COLUMN DIVIDER GRID (Separator-only style, no outer borders)
+   -------------------------------------------------------------------------- */
+
+.stepsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: transparent;
+  border: none;
+}
+
+.stepCard {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  border-right: 1px solid var(--color-border);
+  padding: 8px 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.stepCard:first-child {
+  padding-left: 0;
+}
+
+.stepCard:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+/* 01, 02, 03, 04 Numbers */
+.stepNumber {
+  font-family: var(--font-heading);
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  color: #c7cbd1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  user-select: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+.stepCard:hover .stepNumber {
+  color: var(--color-text);
+}
+
+/* Icon Container */
+.stepIcon {
+  color: var(--color-text);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: transform var(--duration-fast) var(--ease-standard);
+}
+
+.stepCard:hover .stepIcon {
+  transform: translateY(-3px);
+}
+
+.stepIcon svg {
+  display: block;
+}
+
+/* Step Title */
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+  margin: 0 0 10px 0;
+  letter-spacing: -0.01em;
+}
+
+/* Step Description */
+.stepDescription {
+  font-family: var(--font-body);
+  font-size: 14.5px;
+  font-weight: 400;
+  line-height: 1.55;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   DARK THEME ADAPTATION
+   -------------------------------------------------------------------------- */
+
+[data-theme="dark"] .stepNumber {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+[data-theme="dark"] .stepCard:hover .stepNumber {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --------------------------------------------------------------------------
+   RESPONSIVE DESIGN
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 1024px) {
+  .stepsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .headerRow {
+    margin-bottom: var(--space-10);
+    max-width: 100%;
+  }
+
+  .sectionTitle {
+    font-size: 40px;
+  }
+
+  .stepCard {
+    padding: 28px 24px;
+    border-right: none;
+  }
+
+  .stepCard:nth-child(1) {
+    border-right: 1px solid var(--color-border);
+    border-bottom: 1px solid var(--color-border);
+    padding-left: 0;
+  }
+
+  .stepCard:nth-child(2) {
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+  }
+
+  .stepCard:nth-child(3) {
+    border-right: 1px solid var(--color-border);
+    padding-left: 0;
+  }
+
+  .stepCard:nth-child(4) {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .approachSection {
+    padding: var(--space-16) 0;
+  }
+
+  .headerRow {
+    margin-bottom: var(--space-8);
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+
+  .sectionDescription {
+    font-size: 15px;
+  }
+
+  .stepsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .stepCard {
+    padding: 24px 0;
+    border-right: none !important;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .stepCard:first-child {
+    padding-top: 0;
+  }
+
+  .stepCard:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .stepNumber {
+    font-size: 38px;
+    margin-bottom: 18px;
+  }
+
+  .stepIcon {
+    margin-bottom: 16px;
+  }
+
+  .stepTitle {
+    font-size: 18px;
+  }
+
+  .stepDescription {
+    font-size: 14px;
+  }
+}
+
+
