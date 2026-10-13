@@ -1,12 +1,13 @@
 import { Fragment } from "react";
+import { StatItem } from "@/components";
 import styles from "./HeroStats.module.css";
 
-interface StatItem {
+interface StatData {
   value: string;
   label: string;
 }
 
-const STATS_DATA: StatItem[] = [
+const STATS_DATA: StatData[] = [
   { value: "9+", label: "Years Experience" },
   { value: "29+", label: "Projects Delivered" },
   { value: "5", label: "Global Clients" },
@@ -23,10 +24,7 @@ const HeroStats = () => {
         <div className={styles.statsCard}>
           {STATS_DATA.map((stat, index) => (
             <Fragment key={stat.label}>
-              <div className={styles.statItem}>
-                <span className={styles.statValue}>{stat.value}</span>
-                <span className={styles.statLabel}>{stat.label}</span>
-              </div>
+              <StatItem value={stat.value} label={stat.label} />
               {index < STATS_DATA.length - 1 && (
                 <div className={styles.divider} aria-hidden="true" />
               )}
