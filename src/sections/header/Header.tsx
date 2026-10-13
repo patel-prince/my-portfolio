@@ -17,15 +17,60 @@ export const navLinks = [
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
 
   useEffect(() => {
+    const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
+    let rafId: number | null = null;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (rafId) return;
+
+      rafId = requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+
+        // Check if user is at the bottom of the page (activate contact)
+        const isBottom =
+          window.innerHeight + window.scrollY >=
+          document.documentElement.scrollHeight - 80;
+
+        if (isBottom) {
+          setActiveSection("contact");
+          rafId = null;
+          return;
+        }
+
+        // Check if user is near top / in Hero section
+        const aboutEl = document.getElementById("about");
+        if (aboutEl && aboutEl.getBoundingClientRect().top > 200) {
+          setActiveSection("");
+          rafId = null;
+          return;
+        }
+
+        let current = "";
+        for (const id of sectionIds) {
+          const el = document.getElementById(id);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 140 && rect.bottom > 140) {
+              current = id;
+              break;
+            }
+          }
+        }
+
+        setActiveSection(current);
+        rafId = null;
+      });
     };
 
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (rafId) cancelAnimationFrame(rafId);
+    };
   }, []);
 
   // Close menu on resize above 1024px
@@ -72,11 +117,19 @@ const Header = () => {
         </div>
         <nav className={styles.navigationContainer}>
           <ul className={styles.navigation}>
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link href={link.href}>{link.name}</Link>
-              </li>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className={isActive ? styles.activeLink : ""}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <Button href="#contact" className={styles.headerBtn} size="sm">
             LET&apos;S CONNECT
@@ -104,20 +157,23 @@ const Header = () => {
         />
         <div className={styles.mobileDrawerContent}>
           <ul className={styles.mobileNavList}>
-            {navLinks.map((link, index) => (
-              <li key={link.name} className={styles.mobileNavItem}>
-                <Link
-                  href={link.href}
-                  className={styles.mobileNavLink}
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  <span className={styles.mobileNavNumber}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className={styles.mobileNavName}>{link.name}</span>
-                </Link>
-              </li>
-            ))}
+            {navLinks.map((link, index) => {
+              const isActive = activeSection === link.href.replace("#", "");
+              return (
+                <li key={link.name} className={styles.mobileNavItem}>
+                  <Link
+                    href={link.href}
+                    className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <span className={styles.mobileNavNumber}>
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <span className={styles.mobileNavName}>{link.name}</span>
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
           <div className={styles.mobileDrawerFooter}>
             <Button

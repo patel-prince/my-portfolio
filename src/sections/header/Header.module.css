@@ -66,7 +66,8 @@
 .navigation a:hover,
 .navigation a:active,
 .appNavigation a:hover,
-.appNavigation a:active {
+.appNavigation a:active,
+.activeLink {
   color: var(--color-text);
 }
 
@@ -226,7 +227,8 @@
     transition: color var(--duration-fast) var(--ease-standard);
   }
 
-  .mobileNavLink:hover {
+  .mobileNavLink:hover,
+  .mobileNavLinkActive {
     color: var(--color-text-muted);
   }
 

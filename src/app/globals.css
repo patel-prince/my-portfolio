@@ -382,6 +382,20 @@ html {
   color: var(--color-text);
   background: var(--color-background);
   color-scheme: light;
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-height, 72px);
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: var(--header-height-mobile, 60px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 html[data-theme="dark"] {
