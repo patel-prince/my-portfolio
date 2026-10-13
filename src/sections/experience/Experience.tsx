@@ -6,6 +6,7 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import WavesBg from "@/assets/waves.png";
+import { Button } from "@/components/button";
 import styles from "./Experience.module.css";
 
 interface ExperienceItem {
@@ -94,17 +95,15 @@ const Experience = () => {
                 A summary of my professional journey across companies,
                 technologies, and products.
               </p>
-              <a
+              <Button
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`app-button app-button-lg ${styles.resumeBtn}`}
+                size="lg"
+                className={styles.resumeBtn}
               >
-                <span>VIEW FULL RESUME</span>
-                <span className="app-button-icon" aria-hidden="true">
-                  <FiArrowRight size={18} />
-                </span>
-              </a>
+                VIEW FULL RESUME
+              </Button>
             </div>
           </div>
 

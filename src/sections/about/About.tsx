@@ -1,4 +1,5 @@
 import { FiCode, FiCloud, FiShield, FiLayout, FiDownload } from "react-icons/fi";
+import { Button } from "@/components/button";
 import styles from "./About.module.css";
 
 interface AboutFeature {
@@ -63,16 +64,15 @@ const About = () => {
               and grow.
             </p>
 
-            <a
+            <Button
               href="/resume.pdf"
               download="Prince_Patel_CV.pdf"
-              className={`app-button app-button-lg ${styles.aboutBtn}`}
+              size="lg"
+              className={styles.aboutBtn}
+              icon={<FiDownload size={18} />}
             >
-              <span>DOWNLOAD CV</span>
-              <span className="app-button-icon" aria-hidden="true">
-                <FiDownload size={18} />
-              </span>
-            </a>
+              DOWNLOAD CV
+            </Button>
           </div>
 
           {/* Right Column: 2x2 Feature Cross-Grid */}

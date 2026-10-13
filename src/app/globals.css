@@ -631,12 +631,12 @@ select {
 }
 
 [data-theme="dark"] .app-button .app-button-icon {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .app-button:hover .app-button-icon {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
 .flex {

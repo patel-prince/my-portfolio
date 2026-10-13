@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeroImage from "@/assets/prince.png";
 import HeroBg from "@/assets/hero-bg.png";
-import { FiArrowRight } from "react-icons/fi";
+import { Button } from "@/components/button";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
@@ -23,12 +23,9 @@ const Hero = () => {
             experiences that are simple on the surface but powerfull under
             the hood.
           </p>
-          <a href="#contact" className="app-button app-button-lg">
-            <span>LET&apos;S CONNECT</span>
-            <span className="app-button-icon" aria-hidden="true">
-              <FiArrowRight size={18} />
-            </span>
-          </a>
+          <Button href="#contact" size="lg">
+            LET&apos;S CONNECT
+          </Button>
         </div>
         <div className={styles.heroImage}>
           <Image src={HeroImage} alt="hero" priority />

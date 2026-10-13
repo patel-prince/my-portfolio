@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "@/assets/logo-with-text.svg";
 import Link from "next/link";
-import { FiArrowRight, FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
+import { Button } from "@/components/button";
 import styles from "./Header.module.css";
 
 export const navLinks = [
@@ -79,12 +80,9 @@ const Header = () => {
               </li>
             ))}
           </ul>
-          <Link href="#contact" className={`app-button ${styles.headerBtn}`}>
-            <span>LET&apos;S CONNECT</span>
-            <span className="app-button-icon" aria-hidden="true">
-              <FiArrowRight size={14} />
-            </span>
-          </Link>
+          <Button href="#contact" className={styles.headerBtn} size="sm">
+            LET&apos;S CONNECT
+          </Button>
           <button
             type="button"
             className={styles.hamburgerBtn}
@@ -124,16 +122,13 @@ const Header = () => {
             ))}
           </ul>
           <div className={styles.mobileDrawerFooter}>
-            <Link
+            <Button
               href="#contact"
-              className="app-button"
+              size="sm"
               onClick={() => setIsMenuOpen(false)}
             >
-              <span>LET&apos;S CONNECT</span>
-              <span className="app-button-icon" aria-hidden="true">
-                <FiArrowRight size={14} />
-              </span>
-            </Link>
+              LET&apos;S CONNECT
+            </Button>
           </div>
         </div>
       </div>

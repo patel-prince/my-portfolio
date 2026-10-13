@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { FiMail, FiSend } from "react-icons/fi";
+import { Button } from "@/components/button";
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
@@ -174,16 +175,17 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Row 4: Submit Button */}
-              <button
+              <Button
                 type="submit"
-                className={`app-button app-button-lg ${styles.submitButton}`}
+                size="lg"
+                fullWidth
+                centerText
+                className={styles.submitButton}
+                icon={<FiSend size={18} />}
                 aria-label="Send message"
               >
-                <span>{isSubmitted ? "MESSAGE SENT!" : "SEND"}</span>
-                <span className="app-button-icon" aria-hidden="true">
-                  <FiSend size={18} />
-                </span>
-              </button>
+                {isSubmitted ? "MESSAGE SENT!" : "SEND"}
+              </Button>
             </form>
           </div>
         </div>
