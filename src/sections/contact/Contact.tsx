@@ -9,6 +9,9 @@ import {
   SectionTitle,
   SectionDescription,
   FieldLabel,
+  Input,
+  Textarea,
+  CircleIconButton,
 } from "@/components";
 import styles from "./Contact.module.css";
 
@@ -74,43 +77,39 @@ const Contact: React.FC = () => {
 
             {/* Social / Direct Contact Icon Buttons */}
             <div className={styles.socialLinks} aria-label="Social connections">
-              <a
+              <CircleIconButton
                 href="https://linkedin.com/in/prince-patel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.socialBtn}
+                size="md"
                 aria-label="LinkedIn Profile"
-              >
-                <FaLinkedinIn size={18} aria-hidden="true" />
-              </a>
+                icon={<FaLinkedinIn size={18} aria-hidden="true" />}
+              />
 
-              <a
+              <CircleIconButton
                 href="https://github.com/princepatel"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.socialBtn}
+                size="md"
                 aria-label="GitHub Profile"
-              >
-                <FaGithub size={18} aria-hidden="true" />
-              </a>
+                icon={<FaGithub size={18} aria-hidden="true" />}
+              />
 
-              <a
+              <CircleIconButton
                 href="mailto:contact@princepatel.dev"
-                className={styles.socialBtn}
+                size="md"
                 aria-label="Send an Email"
-              >
-                <FiMail size={18} aria-hidden="true" />
-              </a>
+                icon={<FiMail size={18} aria-hidden="true" />}
+              />
 
-              <a
+              <CircleIconButton
                 href="https://wa.me/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className={styles.socialBtn}
+                size="md"
                 aria-label="Chat on WhatsApp"
-              >
-                <FaWhatsapp size={19} aria-hidden="true" />
-              </a>
+                icon={<FaWhatsapp size={19} aria-hidden="true" />}
+              />
             </div>
           </div>
 
@@ -120,10 +119,8 @@ const Contact: React.FC = () => {
               {/* Row 1: Name & Email */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <FieldLabel htmlFor="contact-name">
-                    NAME
-                  </FieldLabel>
-                  <input
+                  <FieldLabel htmlFor="contact-name">NAME</FieldLabel>
+                  <Input
                     id="contact-name"
                     name="name"
                     type="text"
@@ -131,15 +128,12 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Your name"
-                    className={styles.inputField}
                   />
                 </div>
 
                 <div className={styles.formGroup}>
-                  <FieldLabel htmlFor="contact-email">
-                    EMAIL
-                  </FieldLabel>
-                  <input
+                  <FieldLabel htmlFor="contact-email">EMAIL</FieldLabel>
+                  <Input
                     id="contact-email"
                     name="email"
                     type="email"
@@ -147,17 +141,14 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="your.email@example.com"
-                    className={styles.inputField}
                   />
                 </div>
               </div>
 
               {/* Row 2: Subject */}
               <div className={styles.formGroup}>
-                <FieldLabel htmlFor="contact-subject">
-                  SUBJECT
-                </FieldLabel>
-                <input
+                <FieldLabel htmlFor="contact-subject">SUBJECT</FieldLabel>
+                <Input
                   id="contact-subject"
                   name="subject"
                   type="text"
@@ -165,16 +156,13 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   placeholder="Project inquiry"
-                  className={styles.inputField}
                 />
               </div>
 
               {/* Row 3: Message */}
               <div className={styles.formGroup}>
-                <FieldLabel htmlFor="contact-message">
-                  MESSAGE
-                </FieldLabel>
-                <textarea
+                <FieldLabel htmlFor="contact-message">MESSAGE</FieldLabel>
+                <Textarea
                   id="contact-message"
                   name="message"
                   rows={4}
@@ -182,7 +170,6 @@ const Contact: React.FC = () => {
                   value={formData.message}
                   onChange={handleChange}
                   placeholder="Tell me about your project, idea, or opportunity..."
-                  className={styles.textareaField}
                 />
               </div>
 

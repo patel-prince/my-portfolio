@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Logo from "@/assets/logo-with-text.svg";
 import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
-import { Button } from "@/components/button";
+import { Button, Logo } from "@/components";
 import styles from "./Header.module.css";
 
 export const navLinks = [
@@ -70,7 +68,7 @@ const Header = () => {
     >
       <div className={styles.headerContainer}>
         <div className={styles.logoContainer}>
-          <Image src={Logo} alt="logo" height={32} loading="eager" priority />
+          <Logo height={32} priority />
         </div>
         <nav className={styles.navigationContainer}>
           <ul className={styles.navigation}>

@@ -1,7 +1,7 @@
 import React from "react";
 import { FiMonitor, FiServer, FiTool } from "react-icons/fi";
 import { LuPalette } from "react-icons/lu";
-import { SectionTagline, SectionTitle, CardTitle } from "@/components";
+import { SectionTagline, SectionTitle, CardTitle, TechCard } from "@/components";
 import styles from "./TechnicalExpertise.module.css";
 
 interface TechItem {
@@ -220,21 +220,12 @@ const TechnicalExpertise: React.FC = () => {
               {/* Grid of Technology Cards inside Category */}
               <div className={styles.techGrid}>
                 {category.items.map((item) => (
-                  <div key={item.name} className={styles.techCard}>
-                    <div className={styles.techLogoWrapper}>
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={item.logo}
-                        alt={`${item.name} logo`}
-                        className={styles.techLogo}
-                        loading="lazy"
-                      />
-                    </div>
-                    <h4 className={styles.techName}>{item.name}</h4>
-                    <span className={styles.techExperience}>
-                      {item.experience}
-                    </span>
-                  </div>
+                  <TechCard
+                    key={item.name}
+                    name={item.name}
+                    experience={item.experience}
+                    logo={item.logo}
+                  />
                 ))}
               </div>
             </div>

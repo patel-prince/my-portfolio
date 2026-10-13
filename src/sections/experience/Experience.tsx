@@ -1,19 +1,10 @@
-import Image from "next/image";
-import {
-  FiArrowUpRight,
-  FiArrowRight,
-  FiCalendar,
-  FiMapPin,
-} from "react-icons/fi";
 import WavesBg from "@/assets/waves.png";
 import {
   Button,
   SectionTagline,
   SectionTitle,
   SectionDescription,
-  CardTitle,
-  CardDescription,
-  StepNumber,
+  ExperienceCard,
 } from "@/components";
 import styles from "./Experience.module.css";
 
@@ -125,99 +116,27 @@ const Experience = () => {
           <div className={styles.experienceGrid}>
             {/* 01: Featured Full-Width Card */}
             {featuredItem && (
-              <div className={styles.featuredCard}>
-                <div className={styles.cardHeader}>
-                  <StepNumber size="sm" className={styles.cardNumber}>
-                    {featuredItem.number}
-                  </StepNumber>
-                  <div className={styles.arrowIconWrapper} aria-hidden="true">
-                    <FiArrowUpRight size={18} />
-                  </div>
-                </div>
-
-                <div className={styles.featuredBody}>
-                  <div className={styles.featuredMain}>
-                    <CardTitle size="lg" className={styles.companyName}>
-                      {featuredItem.company}
-                    </CardTitle>
-                    <CardDescription size="md" className={styles.roleName}>
-                      {featuredItem.role}
-                    </CardDescription>
-                  </div>
-
-                  <div className={styles.featuredDivider} aria-hidden="true" />
-
-                  <div className={styles.featuredMeta}>
-                    <div className={styles.metaItem}>
-                      <FiCalendar
-                        size={16}
-                        className={styles.metaIcon}
-                        aria-hidden="true"
-                      />
-                      <span>{featuredItem.period}</span>
-                    </div>
-                    <div className={styles.metaItem}>
-                      <FiMapPin
-                        size={16}
-                        className={styles.metaIcon}
-                        aria-hidden="true"
-                      />
-                      <span>{featuredItem.location}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <ExperienceCard
+                number={featuredItem.number}
+                company={featuredItem.company}
+                role={featuredItem.role}
+                period={featuredItem.period}
+                location={featuredItem.location}
+                featured
+              />
             )}
 
             {/* 02 - 05: 2x2 Grid Cards */}
             {gridItems.map((exp) => (
-              <div key={exp.number} className={styles.experienceCard}>
-                <div className={styles.cardHeader}>
-                  <StepNumber size="sm" className={styles.cardNumber}>
-                    {exp.number}
-                  </StepNumber>
-                  <div className={styles.arrowIconWrapper} aria-hidden="true">
-                    <FiArrowUpRight size={18} />
-                  </div>
-                </div>
-
-                <div className={styles.cardBody}>
-                  <CardTitle size="md" className={styles.companyName}>
-                    {exp.company}
-                    {exp.subtitle && (
-                      <span className={styles.companySubtitle}>
-                        {" "}
-                        {exp.subtitle}
-                      </span>
-                    )}
-                  </CardTitle>
-                  <CardDescription size="md" className={styles.roleName}>
-                    {exp.role}
-                  </CardDescription>
-                </div>
-
-                <div className={styles.cardMeta}>
-                  <div className={styles.metaItem}>
-                    <FiCalendar
-                      size={15}
-                      className={styles.metaIcon}
-                      aria-hidden="true"
-                    />
-                    <span>{exp.period}</span>
-                  </div>
-                  <span className={styles.metaDivider} aria-hidden="true">
-                    |
-                  </span>
-                  <div className={styles.metaItem}>
-                    <FiMapPin
-                      size={15}
-                      className={styles.metaIcon}
-                      aria-hidden="true"
-                    />
-                    <span>{exp.location}</span>
-                  </div>
-                </div>
-              </div>
+              <ExperienceCard
+                key={exp.number}
+                number={exp.number}
+                company={exp.company}
+                subtitle={exp.subtitle}
+                role={exp.role}
+                period={exp.period}
+                location={exp.location}
+              />
             ))}
           </div>
         </div>

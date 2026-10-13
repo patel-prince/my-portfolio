@@ -9,9 +9,7 @@ import {
   SectionTagline,
   SectionTitle,
   SectionDescription,
-  CardTitle,
-  CardDescription,
-  StepNumber,
+  StepCard,
 } from "@/components";
 import styles from "./EngineeringApproach.module.css";
 
@@ -86,21 +84,14 @@ const EngineeringApproach: React.FC = () => {
         {/* 4 Cards Grid */}
         <div className={styles.stepsGrid}>
           {APPROACH_STEPS.map((item) => (
-            <div key={item.step} className={styles.stepCard}>
-              <StepNumber size="lg" className={styles.stepNumber}>
-                {item.step}
-              </StepNumber>
-              <div className={styles.stepIcon}>{item.icon}</div>
-              <CardTitle size="md" className={styles.stepTitle}>
-                {item.title}
-              </CardTitle>
-              <CardDescription
-                size="md"
-                className={styles.stepDescription}
-              >
-                {item.description}
-              </CardDescription>
-            </div>
+            <StepCard
+              key={item.step}
+              className={styles.stepCard}
+              step={item.step}
+              icon={item.icon}
+              title={item.title}
+              description={item.description}
+            />
           ))}
         </div>
       </div>

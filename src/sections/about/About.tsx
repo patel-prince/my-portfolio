@@ -4,8 +4,7 @@ import {
   SectionTagline,
   SectionTitle,
   SectionDescription,
-  CardTitle,
-  CardDescription,
+  FeatureCard,
 } from "@/components";
 import styles from "./About.module.css";
 
@@ -85,20 +84,13 @@ const About = () => {
           {/* Right Column: 2x2 Feature Cross-Grid */}
           <div className={styles.featuresGrid}>
             {ABOUT_FEATURES.map((feature) => (
-              <div key={feature.title} className={styles.featureItem}>
-                <div className={styles.iconWrapper}>{feature.icon}</div>
-                <div className={styles.featureContent}>
-                  <CardTitle size="sm" uppercase className={styles.featureTitle}>
-                    {feature.title}
-                  </CardTitle>
-                  <CardDescription
-                    size="sm"
-                    className={styles.featureDescription}
-                  >
-                    {feature.description}
-                  </CardDescription>
-                </div>
-              </div>
+              <FeatureCard
+                key={feature.title}
+                className={styles.featureItem}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+              />
             ))}
           </div>
         </div>

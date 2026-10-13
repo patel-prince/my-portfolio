@@ -1,10 +1,8 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/assets/logo-with-text.svg";
-import { FiArrowUp } from "react-icons/fi";
+import { Logo, BackToTop } from "@/components";
 import styles from "./Footer.module.css";
 
 const FOOTER_NAV_LINKS = [
@@ -16,27 +14,13 @@ const FOOTER_NAV_LINKS = [
 ];
 
 const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
   return (
     <footer className={styles.footer} role="contentinfo">
       <div className="container">
         {/* Top Row: Logo, Navigation, Back to Top */}
         <div className={styles.topRow}>
           {/* Logo / Brand */}
-          <Link href="/" className={styles.brandLink} aria-label="Home">
-            <Image
-              src={Logo}
-              alt="Prince Patel"
-              height={24}
-              className={styles.logo}
-            />
-          </Link>
+          <Logo height={24} className={styles.logo} />
 
           {/* Navigation Links */}
           <nav className={styles.navContainer} aria-label="Footer navigation">
@@ -52,17 +36,7 @@ const Footer: React.FC = () => {
           </nav>
 
           {/* Back to Top Button */}
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className={styles.backToTopBtn}
-            aria-label="Back to top"
-          >
-            <span className={styles.backToTopCircle} aria-hidden="true">
-              <FiArrowUp size={15} />
-            </span>
-            <span className={styles.backToTopText}>BACK TO TOP</span>
-          </button>
+          <BackToTop className={styles.backToTopBtn} />
         </div>
 
         {/* Thin Horizontal Divider */}
