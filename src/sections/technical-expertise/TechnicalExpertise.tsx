@@ -1,6 +1,7 @@
 import React from "react";
 import { FiMonitor, FiServer, FiTool } from "react-icons/fi";
 import { LuPalette } from "react-icons/lu";
+import { SectionTagline, SectionTitle, CardTitle } from "@/components";
 import styles from "./TechnicalExpertise.module.css";
 
 interface TechItem {
@@ -181,18 +182,19 @@ const TechnicalExpertise: React.FC = () => {
       <span id="skills" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
       <div className="container">
         {/* Section Tagline matching About & Experience */}
-        <div className={styles.tagline}>
-          <span>
-            TECHNICAL <strong>EXPERTISE</strong>
-          </span>
-        </div>
+        <SectionTagline>
+          TECHNICAL <strong>EXPERTISE</strong>
+        </SectionTagline>
 
         {/* Top Header Row */}
         <div className={styles.headerRow}>
-          <h2 id="technical-expertise-heading" className={styles.sectionTitle}>
-            <span className={styles.titleLight}>Tools &amp; </span>
-            <span className={styles.titleBold}>Stack</span>
-          </h2>
+          <SectionTitle
+            id="technical-expertise-heading"
+            size="lg"
+            lightText="Tools & "
+            boldText="Stack"
+            className={styles.sectionTitle}
+          />
         </div>
 
         {/* 2x2 Category Cards Grid */}
@@ -205,9 +207,13 @@ const TechnicalExpertise: React.FC = () => {
                   {category.icon}
                 </div>
                 <div className={styles.cardHeaderInfo}>
-                  <h3 className={styles.cardHeaderTitle}>
+                  <CardTitle
+                    size="sm"
+                    uppercase
+                    className={styles.cardHeaderTitle}
+                  >
                     {category.headerTitle}
-                  </h3>
+                  </CardTitle>
                 </div>
               </div>
 

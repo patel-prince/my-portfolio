@@ -3,7 +3,13 @@
 import React, { useState } from "react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { FiMail, FiSend } from "react-icons/fi";
-import { Button } from "@/components/button";
+import {
+  Button,
+  SectionTagline,
+  SectionTitle,
+  SectionDescription,
+  FieldLabel,
+} from "@/components";
 import styles from "./Contact.module.css";
 
 const Contact: React.FC = () => {
@@ -44,21 +50,27 @@ const Contact: React.FC = () => {
         <div className={styles.contactGrid}>
           {/* Left Column: Heading, Info & Social Links */}
           <div className={styles.leftColumn}>
-            <div className={styles.tagline}>
-              <span>
-                LET&apos;S <strong>CONNECT</strong>
-              </span>
-            </div>
+            <SectionTagline>
+              LET&apos;S <strong>CONNECT</strong>
+            </SectionTagline>
 
-            <h2 id="contact-heading" className={styles.heading}>
+            <SectionTitle
+              id="contact-heading"
+              size="xl"
+              className={styles.heading}
+            >
               Have a project in mind?
-            </h2>
+            </SectionTitle>
 
-            <p className={styles.description}>
+            <SectionDescription
+              size="lg"
+              maxWidth={480}
+              className={styles.description}
+            >
               I&apos;m always open to discussing thoughtful products,
               challenging engineering problems, and opportunities to build
               something valuable.
-            </p>
+            </SectionDescription>
 
             {/* Social / Direct Contact Icon Buttons */}
             <div className={styles.socialLinks} aria-label="Social connections">
@@ -108,9 +120,9 @@ const Contact: React.FC = () => {
               {/* Row 1: Name & Email */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label htmlFor="contact-name" className={styles.fieldLabel}>
+                  <FieldLabel htmlFor="contact-name">
                     NAME
-                  </label>
+                  </FieldLabel>
                   <input
                     id="contact-name"
                     name="name"
@@ -124,9 +136,9 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className={styles.formGroup}>
-                  <label htmlFor="contact-email" className={styles.fieldLabel}>
+                  <FieldLabel htmlFor="contact-email">
                     EMAIL
-                  </label>
+                  </FieldLabel>
                   <input
                     id="contact-email"
                     name="email"
@@ -142,9 +154,9 @@ const Contact: React.FC = () => {
 
               {/* Row 2: Subject */}
               <div className={styles.formGroup}>
-                <label htmlFor="contact-subject" className={styles.fieldLabel}>
+                <FieldLabel htmlFor="contact-subject">
                   SUBJECT
-                </label>
+                </FieldLabel>
                 <input
                   id="contact-subject"
                   name="subject"
@@ -159,9 +171,9 @@ const Contact: React.FC = () => {
 
               {/* Row 3: Message */}
               <div className={styles.formGroup}>
-                <label htmlFor="contact-message" className={styles.fieldLabel}>
+                <FieldLabel htmlFor="contact-message">
                   MESSAGE
-                </label>
+                </FieldLabel>
                 <textarea
                   id="contact-message"
                   name="message"

@@ -6,7 +6,15 @@ import {
   FiMapPin,
 } from "react-icons/fi";
 import WavesBg from "@/assets/waves.png";
-import { Button } from "@/components/button";
+import {
+  Button,
+  SectionTagline,
+  SectionTitle,
+  SectionDescription,
+  CardTitle,
+  CardDescription,
+  StepNumber,
+} from "@/components";
 import styles from "./Experience.module.css";
 
 interface ExperienceItem {
@@ -70,11 +78,9 @@ const Experience = () => {
     >
       <div className="container">
         {/* Section Eyebrow / Tagline */}
-        <div className={styles.tagline}>
-          <span>
-            MY <strong>EXPERIENCE</strong>
-          </span>
-        </div>
+        <SectionTagline>
+          MY <strong>EXPERIENCE</strong>
+        </SectionTagline>
 
         {/* Main Experience Layout: Left Banner Card + Right Experience Grid */}
         <div className={styles.experienceLayout}>
@@ -87,14 +93,22 @@ const Experience = () => {
             />
             <div className={styles.impactCardOverlay} aria-hidden="true" />
             <div className={styles.impactContent}>
-              <h2 id="experience-heading" className={styles.impactTitle}>
-                <span className={styles.impactTitleLight}>Where I’ve</span>
-                <span className={styles.impactTitleBold}>Made an Impact.</span>
-              </h2>
-              <p className={styles.impactDescription}>
+              <SectionTitle
+                id="experience-heading"
+                size="md"
+                stackLines
+                lightText="Where I’ve"
+                boldText="Made an Impact."
+                className={styles.impactTitle}
+              />
+              <SectionDescription
+                size="md"
+                maxWidth={270}
+                className={styles.impactDescription}
+              >
                 A summary of my professional journey across companies,
                 technologies, and products.
-              </p>
+              </SectionDescription>
               <Button
                 href="/resume.pdf"
                 target="_blank"
@@ -113,9 +127,9 @@ const Experience = () => {
             {featuredItem && (
               <div className={styles.featuredCard}>
                 <div className={styles.cardHeader}>
-                  <span className={styles.cardNumber}>
+                  <StepNumber size="sm" className={styles.cardNumber}>
                     {featuredItem.number}
-                  </span>
+                  </StepNumber>
                   <div className={styles.arrowIconWrapper} aria-hidden="true">
                     <FiArrowUpRight size={18} />
                   </div>
@@ -123,10 +137,12 @@ const Experience = () => {
 
                 <div className={styles.featuredBody}>
                   <div className={styles.featuredMain}>
-                    <h3 className={styles.companyName}>
+                    <CardTitle size="lg" className={styles.companyName}>
                       {featuredItem.company}
-                    </h3>
-                    <p className={styles.roleName}>{featuredItem.role}</p>
+                    </CardTitle>
+                    <CardDescription size="md" className={styles.roleName}>
+                      {featuredItem.role}
+                    </CardDescription>
                   </div>
 
                   <div className={styles.featuredDivider} aria-hidden="true" />
@@ -157,14 +173,16 @@ const Experience = () => {
             {gridItems.map((exp) => (
               <div key={exp.number} className={styles.experienceCard}>
                 <div className={styles.cardHeader}>
-                  <span className={styles.cardNumber}>{exp.number}</span>
+                  <StepNumber size="sm" className={styles.cardNumber}>
+                    {exp.number}
+                  </StepNumber>
                   <div className={styles.arrowIconWrapper} aria-hidden="true">
                     <FiArrowUpRight size={18} />
                   </div>
                 </div>
 
                 <div className={styles.cardBody}>
-                  <h3 className={styles.companyName}>
+                  <CardTitle size="md" className={styles.companyName}>
                     {exp.company}
                     {exp.subtitle && (
                       <span className={styles.companySubtitle}>
@@ -172,8 +190,10 @@ const Experience = () => {
                         {exp.subtitle}
                       </span>
                     )}
-                  </h3>
-                  <p className={styles.roleName}>{exp.role}</p>
+                  </CardTitle>
+                  <CardDescription size="md" className={styles.roleName}>
+                    {exp.role}
+                  </CardDescription>
                 </div>
 
                 <div className={styles.cardMeta}>

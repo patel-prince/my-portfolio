@@ -1,5 +1,12 @@
 import { FiCode, FiCloud, FiShield, FiLayout, FiDownload } from "react-icons/fi";
-import { Button } from "@/components/button";
+import {
+  Button,
+  SectionTagline,
+  SectionTitle,
+  SectionDescription,
+  CardTitle,
+  CardDescription,
+} from "@/components";
 import styles from "./About.module.css";
 
 interface AboutFeature {
@@ -42,27 +49,27 @@ const About = () => {
         <div className={styles.aboutGrid}>
           {/* Left Column: Heading, Description & CTA */}
           <div className={styles.aboutContent}>
-            <div className={styles.tagline}>
-              <span>
-                ABOUT <strong>ME</strong>
-              </span>
-            </div>
+            <SectionTagline>
+              ABOUT <strong>ME</strong>
+            </SectionTagline>
 
-            <h2 id="about-heading" className={styles.heading}>
-              <span className={styles.headingLight}>
-                I BUILD THINGS THAT FEEL
-              </span>
-              <span className={styles.headingBold}>EFFORTLESS TO USE</span>
-            </h2>
+            <SectionTitle
+              id="about-heading"
+              size="md"
+              stackLines
+              uppercase
+              lightText="I BUILD THINGS THAT FEEL"
+              boldText="EFFORTLESS TO USE"
+            />
 
-            <p className={styles.description}>
+            <SectionDescription maxWidth={520}>
               I&apos;m Prince Patel, a Full Stack Developer with 9+ years of
               experience. I build digital experiences where product thinking,
               frontend craftsmanship, and backend engineering come together.
               From intuitive interfaces to scalable APIs and cloud services, I
               turn complex requirements into reliable products built to perform
               and grow.
-            </p>
+            </SectionDescription>
 
             <Button
               href="/resume.pdf"
@@ -81,10 +88,15 @@ const About = () => {
               <div key={feature.title} className={styles.featureItem}>
                 <div className={styles.iconWrapper}>{feature.icon}</div>
                 <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>{feature.title}</h3>
-                  <p className={styles.featureDescription}>
+                  <CardTitle size="sm" uppercase className={styles.featureTitle}>
+                    {feature.title}
+                  </CardTitle>
+                  <CardDescription
+                    size="sm"
+                    className={styles.featureDescription}
+                  >
                     {feature.description}
-                  </p>
+                  </CardDescription>
                 </div>
               </div>
             ))}

@@ -1,0 +1,308 @@
+/* ==========================================================================
+   PORTFOLIO TYPOGRAPHY SYSTEM
+   Editorial, monochrome typography matching design system tokens
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. SECTION TAGLINE / EYEBROW
+   -------------------------------------------------------------------------- */
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: var(--space-6);
+  background: linear-gradient(to right, var(--color-surface-2), transparent);
+  padding: 0px 24px 0px 0px;
+}
+
+.tagline::before {
+  content: "";
+  display: inline-block;
+  width: 1px;
+  height: 26px;
+  background: var(--color-text);
+}
+
+.tagline strong {
+  font-weight: 700;
+}
+
+.taglineCenter {
+  justify-content: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   2. SECTION TITLE
+   -------------------------------------------------------------------------- */
+.sectionTitle {
+  margin: 0 0 var(--space-6) 0;
+  font-family: var(--font-heading);
+  color: var(--color-text);
+  letter-spacing: -0.02em;
+}
+
+.stacked {
+  display: flex;
+  flex-direction: column;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+/* Title Sizes */
+.sm {
+  font-size: 28px;
+  line-height: 1.25;
+}
+
+.md {
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.lg {
+  font-size: 44px;
+  line-height: 1.15;
+}
+
+.xl {
+  font-size: 46px;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+/* --------------------------------------------------------------------------
+   3. SECTION DESCRIPTION
+   -------------------------------------------------------------------------- */
+.description {
+  font-family: var(--font-body);
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0 0 var(--space-6) 0;
+}
+
+.descSm {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.descMd {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.descLg {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* --------------------------------------------------------------------------
+   4. SECTION HEADER (Composite Container)
+   -------------------------------------------------------------------------- */
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: var(--space-10);
+}
+
+.headerCenter {
+  align-items: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. CARD TITLE
+   -------------------------------------------------------------------------- */
+.cardTitle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.cardTitleSm {
+  font-size: 13.5px;
+  line-height: 1.3;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: var(--space-2);
+}
+
+.cardTitleMd {
+  font-size: 18.5px;
+  line-height: 1.3;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.cardTitleLg {
+  font-size: 23px;
+  line-height: 1.25;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.cardTitleUppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* --------------------------------------------------------------------------
+   6. CARD DESCRIPTION
+   -------------------------------------------------------------------------- */
+.cardDescription {
+  font-family: var(--font-body);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+.cardDescSm {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.cardDescMd {
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+/* --------------------------------------------------------------------------
+   7. STEP NUMBER / CARD NUMBER
+   -------------------------------------------------------------------------- */
+.stepNumber {
+  font-family: var(--font-heading);
+  user-select: none;
+}
+
+.stepNumberSm {
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--color-text);
+  letter-spacing: 0.5px;
+}
+
+.stepNumberLg {
+  font-size: 44px;
+  font-weight: 800;
+  line-height: 1;
+  color: #c7cbd1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  display: block;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+[data-theme="dark"] .stepNumberLg {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* --------------------------------------------------------------------------
+   8. FORM FIELD LABEL
+   -------------------------------------------------------------------------- */
+.fieldLabel {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.fieldLabelRequired::after {
+  content: " *";
+  color: #ef4444;
+}
+
+/* --------------------------------------------------------------------------
+   9. RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+@media (max-width: 1180px) {
+  .cardTitleLg {
+    font-size: 21px;
+  }
+
+  .cardTitleMd {
+    font-size: 17.5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .md {
+    font-size: 32px;
+  }
+
+  .lg,
+  .xl {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 768px) {
+  .md {
+    font-size: 28px;
+  }
+
+  .lg,
+  .xl {
+    font-size: 32px;
+  }
+
+  .descLg {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cardTitleMd {
+    font-size: 18px;
+  }
+
+  .cardDescMd {
+    font-size: 14px;
+  }
+
+  .stepNumberLg {
+    font-size: 38px;
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tagline {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+  }
+
+  .sm {
+    font-size: 24px;
+  }
+
+  .md {
+    font-size: 26px;
+  }
+
+  .lg,
+  .xl {
+    font-size: 28px;
+  }
+}

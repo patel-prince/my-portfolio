@@ -5,6 +5,14 @@ import {
   LuCodeXml,
   LuChartNoAxesCombined,
 } from "react-icons/lu";
+import {
+  SectionTagline,
+  SectionTitle,
+  SectionDescription,
+  CardTitle,
+  CardDescription,
+  StepNumber,
+} from "@/components";
 import styles from "./EngineeringApproach.module.css";
 
 interface ApproachStep {
@@ -53,31 +61,45 @@ const EngineeringApproach: React.FC = () => {
       <span id="approach" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
       <div className="container">
         {/* Section Tagline matching About & Experience */}
-        <div className={styles.tagline}>
-          <span>
-            ENGINEERING <strong>APPROACH</strong>
-          </span>
-        </div>
+        <SectionTagline>
+          ENGINEERING <strong>APPROACH</strong>
+        </SectionTagline>
 
         {/* Header Row */}
         <div className={styles.headerRow}>
-          <h2 id="approach-heading" className={styles.sectionTitle}>
+          <SectionTitle
+            id="approach-heading"
+            size="lg"
+            className={styles.sectionTitle}
+          >
             How I Work.
-          </h2>
-          <p className={styles.sectionDescription}>
+          </SectionTitle>
+          <SectionDescription
+            size="lg"
+            className={styles.sectionDescription}
+          >
             A practical, thoughtful, and results-driven approach to building
             scalable and reliable digital products.
-          </p>
+          </SectionDescription>
         </div>
 
         {/* 4 Cards Grid */}
         <div className={styles.stepsGrid}>
           {APPROACH_STEPS.map((item) => (
             <div key={item.step} className={styles.stepCard}>
-              <span className={styles.stepNumber}>{item.step}</span>
+              <StepNumber size="lg" className={styles.stepNumber}>
+                {item.step}
+              </StepNumber>
               <div className={styles.stepIcon}>{item.icon}</div>
-              <h3 className={styles.stepTitle}>{item.title}</h3>
-              <p className={styles.stepDescription}>{item.description}</p>
+              <CardTitle size="md" className={styles.stepTitle}>
+                {item.title}
+              </CardTitle>
+              <CardDescription
+                size="md"
+                className={styles.stepDescription}
+              >
+                {item.description}
+              </CardDescription>
             </div>
           ))}
         </div>
