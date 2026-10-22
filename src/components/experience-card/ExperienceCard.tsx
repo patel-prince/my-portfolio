@@ -34,7 +34,7 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
             size="sm"
             aria-label={`View experience at ${company}`}
             icon={<FiArrowUpRight size={18} />}
-          /> */}
+          /> */} 
         </div>
 
         <div className={styles.featuredBody}>
