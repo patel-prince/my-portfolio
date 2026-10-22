@@ -8,7 +8,6 @@ import {
 import { approachSteps } from "@/config";
 import styles from "./EngineeringApproach.module.css";
 
-
 const EngineeringApproach: React.FC = () => {
   return (
     <section
@@ -16,7 +15,11 @@ const EngineeringApproach: React.FC = () => {
       className={styles.approachSection}
       aria-labelledby="approach-heading"
     >
-      <span id="approach" style={{ position: "absolute", top: 0 }} aria-hidden="true" />
+      <span
+        id="approach"
+        style={{ position: "absolute", top: 0 }}
+        aria-hidden="true"
+      />
       <div className="container">
         {/* Section Tagline matching About & Experience */}
         <SectionTagline>
@@ -30,12 +33,9 @@ const EngineeringApproach: React.FC = () => {
             size="lg"
             className={styles.sectionTitle}
           >
-            How I Work.
+            How I Work
           </SectionTitle>
-          <SectionDescription
-            size="lg"
-            className={styles.sectionDescription}
-          >
+          <SectionDescription size="lg" className={styles.sectionDescription}>
             A practical, thoughtful, and results-driven approach to building
             scalable and reliable digital products.
           </SectionDescription>

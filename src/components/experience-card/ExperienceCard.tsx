@@ -30,11 +30,11 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
           <StepNumber size="sm" className={styles.cardNumber}>
             {number}
           </StepNumber>
-          <CircleIconButton
+          {/* <CircleIconButton
             size="sm"
             aria-label={`View experience at ${company}`}
             icon={<FiArrowUpRight size={18} />}
-          />
+          /> */}
         </div>
 
         <div className={styles.featuredBody}>
@@ -66,11 +66,11 @@ export const ExperienceCard: React.FC<ExperienceCardProps> = ({
         <StepNumber size="sm" className={styles.cardNumber}>
           {number}
         </StepNumber>
-        <CircleIconButton
+        {/* <CircleIconButton
           size="sm"
           aria-label={`View experience at ${company}`}
           icon={<FiArrowUpRight size={18} />}
-        />
+        /> */}
       </div>
 
       <div className={styles.cardBody}>

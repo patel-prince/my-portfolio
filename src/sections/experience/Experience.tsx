@@ -13,7 +13,6 @@ const Experience = () => {
   const featuredItem = experiencesData.find((item) => item.featured);
   const gridItems = experiencesData.filter((item) => !item.featured);
 
-
   return (
     <section
       id="experience"
@@ -42,7 +41,7 @@ const Experience = () => {
                 size="md"
                 stackLines
                 lightText="Where I’ve"
-                boldText="Made an Impact."
+                boldText="Made an Impact"
                 className={styles.impactTitle}
               />
               <SectionDescription
