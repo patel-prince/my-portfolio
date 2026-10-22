@@ -279,10 +279,59 @@ export async function sendContactEmails(data: ContactEmailPayload) {
   const adminEmailData = buildAdminNotificationEmail(data);
   const userEmailData = buildUserThankYouEmail(data);
 
-  // 1. SendGrid REST API (Recommended for serverless & free tier)
+  // 1. Nodemailer SMTP (Gmail App Password, direct SMTP - highest delivery rate for @gmail.com)
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpHost =
+    process.env.SMTP_HOST ||
+    (smtpUser?.endsWith("@gmail.com") ? "smtp.gmail.com" : undefined);
+  const smtpPort = process.env.SMTP_PORT
+    ? parseInt(process.env.SMTP_PORT, 10)
+    : 465;
+
+  if (smtpUser && smtpPass && smtpHost) {
+    const transporter = nodemailer.createTransport({
+      host: smtpHost,
+      port: smtpPort,
+      secure: smtpPort === 465,
+      auth: {
+        user: smtpUser,
+        pass: smtpPass.replace(/\s+/g, ""), // strip any spaces Google app passwords display with
+      },
+    });
+
+    const fromAddress = smtpUser;
+
+    // 1. Send notification to Prince (with replyTo set to user's email)
+    await transporter.sendMail({
+      from: `"Portfolio Contact" <${fromAddress}>`,
+      to: adminEmail,
+      replyTo: data.email,
+      subject: adminEmailData.subject,
+      text: adminEmailData.text,
+      html: adminEmailData.html,
+    });
+
+    // 2. Send Thank-You confirmation to the user
+    await transporter.sendMail({
+      from: `"Prince Patel" <${fromAddress}>`,
+      to: data.email,
+      subject: userEmailData.subject,
+      text: userEmailData.text,
+      html: userEmailData.html,
+    });
+
+    return {
+      success: true,
+      mode: "smtp",
+      sentTo: [adminEmail, data.email],
+    };
+  }
+
+  // 2. SendGrid REST API (Alternative)
   const sendgridApiKey = process.env.SENDGRID_API_KEY;
   const sendgridFrom =
-    process.env.SENDGRID_FROM_EMAIL || process.env.SMTP_USER || adminEmail;
+    process.env.SENDGRID_FROM_EMAIL || adminEmail;
 
   if (sendgridApiKey && sendgridFrom) {
     // Notification to Prince (with replyTo set to user)
@@ -309,55 +358,6 @@ export async function sendContactEmails(data: ContactEmailPayload) {
     return {
       success: true,
       mode: "sendgrid",
-      sentTo: [adminEmail, data.email],
-    };
-  }
-
-  // 2. Nodemailer SMTP (SendGrid SMTP, Gmail SMTP, or Custom SMTP)
-  const smtpUser = process.env.SMTP_USER;
-  const smtpPass = process.env.SMTP_PASS;
-  const smtpHost =
-    process.env.SMTP_HOST ||
-    (smtpUser?.endsWith("@gmail.com") ? "smtp.gmail.com" : undefined);
-  const smtpPort = process.env.SMTP_PORT
-    ? parseInt(process.env.SMTP_PORT, 10)
-    : 465;
-
-  if (smtpUser && smtpPass && smtpHost) {
-    const transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: smtpPort,
-      secure: smtpPort === 465,
-      auth: {
-        user: smtpUser,
-        pass: smtpPass,
-      },
-    });
-
-    const fromAddress = process.env.SENDGRID_FROM_EMAIL || smtpUser;
-
-    // 1. Send notification to Prince (with replyTo set to user's email)
-    await transporter.sendMail({
-      from: `"Portfolio Contact" <${fromAddress}>`,
-      to: adminEmail,
-      replyTo: data.email,
-      subject: adminEmailData.subject,
-      text: adminEmailData.text,
-      html: adminEmailData.html,
-    });
-
-    // 2. Send Thank-You confirmation to the user
-    await transporter.sendMail({
-      from: `"Prince Patel" <${fromAddress}>`,
-      to: data.email,
-      subject: userEmailData.subject,
-      text: userEmailData.text,
-      html: userEmailData.html,
-    });
-
-    return {
-      success: true,
-      mode: "smtp",
       sentTo: [adminEmail, data.email],
     };
   }
