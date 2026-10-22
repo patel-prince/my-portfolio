@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { sendContactEmails } from "@/lib/email";
 
 interface ContactRequestBody {
   name?: string;
@@ -45,47 +46,21 @@ export async function POST(request: Request) {
       );
     }
 
-    // Optional provider integration: Web3Forms (if access key is configured in env)
-    const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
-    if (web3formsKey) {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          access_key: web3formsKey,
-          name: name.trim(),
-          email: email.trim(),
-          subject: subject.trim(),
-          message: message.trim(),
-          from_name: "Portfolio Contact Form",
-        }),
-      });
-
-      const data = await response.json();
-      if (!response.ok || !data.success) {
-        return NextResponse.json(
-          {
-            success: false,
-            message: data.message || "Failed to deliver message.",
-          },
-          { status: 500 }
-        );
-      }
-    } else {
-      // Development / default logging
-      console.log("[Portfolio Contact Form Submission Received]:", {
-        name: name.trim(),
-        email: email.trim(),
-        subject: subject.trim(),
-        message: message.trim(),
-        receivedAt: new Date().toISOString(),
-      });
-    }
+    // Send dual emails:
+    // 1. Notification to Prince with all form details
+    // 2. Personalized Thank-You auto-reply to the user
+    await sendContactEmails({
+      name: name.trim(),
+      email: email.trim(),
+      subject: subject.trim(),
+      message: message.trim(),
+    });
 
     return NextResponse.json(
       {
         success: true,
-        message: "Thank you! Your message has been sent successfully.",
+        message:
+          "Thank you! Your message has been sent. A confirmation email has also been sent to your inbox.",
       },
       { status: 200 }
     );

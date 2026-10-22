@@ -12,6 +12,7 @@ export interface SiteConfig {
   url: string;
   resumeUrl: string;
   resumeFileName: string;
+  phone?: string;
   social: {
     linkedin: string;
     github: string;
@@ -28,13 +29,14 @@ export const siteConfig: SiteConfig = {
   description:
     "Full Stack Developer with 9+ years of experience bridging product thinking and engineering to create simple, resilient, and performant digital experiences.",
   url: "https://princepatel.dev",
+  phone: "+91 9974270604",
   resumeUrl: "/resume.pdf",
   resumeFileName: "Prince_Patel_CV.pdf",
   social: {
-    linkedin: "https://linkedin.com/in/prince-patel",
-    github: "https://github.com/princepatel",
-    email: "mailto:contact@princepatel.dev",
-    whatsapp: "https://wa.me/",
+    linkedin: "https://www.linkedin.com/in/prpatel0949/",
+    github: "https://github.com/patel-prince",
+    email: "mailto:prpatel0949@gmail.com",
+    whatsapp: "https://wa.me/919974270604",
   },
   copyrightYear: 2026,
 };
