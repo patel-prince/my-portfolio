@@ -1,7 +1,7 @@
 import Image from "next/image";
 import HeroImage from "@/assets/prince.png";
 import HeroBg from "@/assets/hero-bg.png";
-import { Button } from "@/components/button";
+import { Button } from "@/components";
 import styles from "./Hero.module.css";
 
 const Hero = () => {
@@ -20,7 +20,7 @@ const Hero = () => {
           </h2>
           <p className="max-w-500 weight-400">
             I bridge product thinking and engineering to create digital
-            experiences that are simple on the surface but powerfull under
+            experiences that are simple on the surface but powerful under
             the hood.
           </p>
           <Button href="#contact" size="lg">

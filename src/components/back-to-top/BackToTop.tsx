@@ -19,6 +19,9 @@ export const BackToTop: React.FC<BackToTopProps> = ({
         top: 0,
         behavior: "smooth",
       });
+      if (window.location.hash) {
+        window.history.pushState(null, "", window.location.pathname);
+      }
     }
   };
 

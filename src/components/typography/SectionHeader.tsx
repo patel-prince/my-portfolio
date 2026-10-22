@@ -1,13 +1,11 @@
 import React from "react";
+import { cn } from "@/utils";
 import { SectionHeaderProps } from "./types";
 import { SectionTagline } from "./SectionTagline";
 import { SectionTitle } from "./SectionTitle";
 import { SectionDescription } from "./SectionDescription";
 import styles from "./Typography.module.css";
 
-function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(" ");
-}
 
 export const SectionHeader = React.forwardRef<
   HTMLDivElement,

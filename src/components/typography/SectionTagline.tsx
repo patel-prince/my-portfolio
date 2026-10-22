@@ -1,10 +1,8 @@
 import React from "react";
+import { cn } from "@/utils";
 import { SectionTaglineProps } from "./types";
 import styles from "./Typography.module.css";
 
-function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(" ");
-}
 
 export const SectionTagline = React.forwardRef<
   HTMLDivElement,

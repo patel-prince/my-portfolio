@@ -1,17 +1,10 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { Logo, BackToTop } from "@/components";
+import { footerNavLinks, siteConfig } from "@/config";
+import { scrollToSection } from "@/utils";
 import styles from "./Footer.module.css";
-
-const FOOTER_NAV_LINKS = [
-  { name: "ABOUT", href: "#about" },
-  { name: "EXPERIENCE", href: "#experience" },
-  { name: "TOOLS & STACK", href: "#tools-stack" },
-  { name: "HOW I WORK", href: "#how-i-work" },
-  { name: "CONTACT", href: "#contact" },
-];
 
 const Footer: React.FC = () => {
   return (
@@ -25,11 +18,15 @@ const Footer: React.FC = () => {
           {/* Navigation Links */}
           <nav className={styles.navContainer} aria-label="Footer navigation">
             <ul className={styles.navList}>
-              {FOOTER_NAV_LINKS.map((link) => (
+              {footerNavLinks.map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className={styles.navLink}>
+                  <a
+                    href={link.href}
+                    className={styles.navLink}
+                    onClick={(e) => scrollToSection(link.href, e)}
+                  >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -45,7 +42,7 @@ const Footer: React.FC = () => {
         {/* Bottom Row: Copyright & Credits */}
         <div className={styles.bottomRow}>
           <div className={styles.copyright}>
-            &copy; 2026 Prince Patel. All rights reserved.
+            &copy; {siteConfig.copyrightYear} {siteConfig.name}. All rights reserved.
           </div>
           <div className={styles.credits}>DESIGNED &amp; BUILT WITH CARE</div>
         </div>

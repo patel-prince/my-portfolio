@@ -1,4 +1,4 @@
-import { FiCode, FiCloud, FiShield, FiLayout, FiDownload } from "react-icons/fi";
+import { FiDownload } from "react-icons/fi";
 import {
   Button,
   SectionTagline,
@@ -6,36 +6,9 @@ import {
   SectionDescription,
   FeatureCard,
 } from "@/components";
+import { aboutConfig, siteConfig } from "@/config";
 import styles from "./About.module.css";
 
-interface AboutFeature {
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-}
-
-const ABOUT_FEATURES: AboutFeature[] = [
-  {
-    title: "MODERN FRONTEND",
-    description: "Next.js, React, TypeScript, and state-of-the-art styling.",
-    icon: <FiCode size={22} aria-hidden="true" />,
-  },
-  {
-    title: "API & CLOUD SERVICES",
-    description: "RESTful & GraphQL services, serverless, and cloud deployments.",
-    icon: <FiCloud size={22} aria-hidden="true" />,
-  },
-  {
-    title: "SYSTEM RESILIENCE",
-    description: "Secure data flow, caching strategies, and fail-safe operations.",
-    icon: <FiShield size={22} aria-hidden="true" />,
-  },
-  {
-    title: "DESIGN TO CODE",
-    description: "Translating intricate Figma designs into production-ready web apps.",
-    icon: <FiLayout size={22} aria-hidden="true" />,
-  },
-];
 
 const About = () => {
   return (
@@ -71,8 +44,8 @@ const About = () => {
             </SectionDescription>
 
             <Button
-              href="/resume.pdf"
-              download="Prince_Patel_CV.pdf"
+              href={siteConfig.resumeUrl}
+              download={siteConfig.resumeFileName}
               size="lg"
               className={styles.aboutBtn}
               icon={<FiDownload size={18} />}
@@ -83,7 +56,7 @@ const About = () => {
 
           {/* Right Column: 2x2 Feature Cross-Grid */}
           <div className={styles.featuresGrid}>
-            {ABOUT_FEATURES.map((feature) => (
+            {aboutConfig.features.map((feature) => (
               <FeatureCard
                 key={feature.title}
                 className={styles.featureItem}

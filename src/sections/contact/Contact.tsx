@@ -13,7 +13,9 @@ import {
   Textarea,
   CircleIconButton,
 } from "@/components";
+import { siteConfig } from "@/config";
 import styles from "./Contact.module.css";
+
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +24,11 @@ const Contact: React.FC = () => {
     subject: "",
     message: "",
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{
+    type: "idle" | "success" | "error";
+    message?: string;
+  }>({ type: "idle" });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,14 +39,47 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 4000);
+    setIsSubmitting(true);
+    setStatus({ type: "idle" });
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus({
+          type: "success",
+          message:
+            data.message || "Thank you! Your message has been sent successfully.",
+        });
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setTimeout(() => {
+          setStatus({ type: "idle" });
+        }, 5000);
+      } else {
+        setStatus({
+          type: "error",
+          message: data.message || "Something went wrong. Please try again.",
+        });
+      }
+    } catch {
+      setStatus({
+        type: "error",
+        message:
+          "Unable to send message. Please check your internet connection or email directly.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
 
   return (
     <section
@@ -78,7 +117,7 @@ const Contact: React.FC = () => {
             {/* Social / Direct Contact Icon Buttons */}
             <div className={styles.socialLinks} aria-label="Social connections">
               <CircleIconButton
-                href="https://linkedin.com/in/prince-patel"
+                href={siteConfig.social.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 size="md"
@@ -87,7 +126,7 @@ const Contact: React.FC = () => {
               />
 
               <CircleIconButton
-                href="https://github.com/princepatel"
+                href={siteConfig.social.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 size="md"
@@ -96,14 +135,14 @@ const Contact: React.FC = () => {
               />
 
               <CircleIconButton
-                href="mailto:contact@princepatel.dev"
+                href={siteConfig.social.email}
                 size="md"
                 aria-label="Send an Email"
                 icon={<FiMail size={18} aria-hidden="true" />}
               />
 
               <CircleIconButton
-                href="https://wa.me/"
+                href={siteConfig.social.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
                 size="md"
@@ -173,17 +212,34 @@ const Contact: React.FC = () => {
                 />
               </div>
 
+              {/* Status Notifications */}
+              {status.type === "success" && (
+                <div className={styles.alertSuccess} role="status">
+                  {status.message}
+                </div>
+              )}
+              {status.type === "error" && (
+                <div className={styles.alertError} role="alert">
+                  {status.message}
+                </div>
+              )}
+
               {/* Row 4: Submit Button */}
               <Button
                 type="submit"
                 size="lg"
                 fullWidth
                 centerText
+                isLoading={isSubmitting}
                 className={styles.submitButton}
                 icon={<FiSend size={18} />}
                 aria-label="Send message"
               >
-                {isSubmitted ? "MESSAGE SENT!" : "SEND"}
+                {isSubmitting
+                  ? "SENDING..."
+                  : status.type === "success"
+                    ? "MESSAGE SENT!"
+                    : "SEND"}
               </Button>
             </form>
           </div>

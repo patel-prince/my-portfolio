@@ -3,12 +3,9 @@
 import React from "react";
 import Link from "next/link";
 import { FiArrowRight } from "react-icons/fi";
+import { cn, scrollToSection } from "@/utils";
 import { ButtonProps } from "./types";
 import styles from "./Button.module.css";
-
-function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(" ");
-}
 
 export const Button = React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
@@ -71,6 +68,7 @@ export const Button = React.forwardRef<
         href: string;
       };
 
+    const isHash = href.startsWith("#");
     const isExternal =
       href.startsWith("http://") ||
       href.startsWith("https://") ||
@@ -78,7 +76,16 @@ export const Button = React.forwardRef<
       Boolean(download) ||
       target === "_blank";
 
-    if (isExternal) {
+    const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (onClick) {
+        onClick(e);
+      }
+      if (isHash && !e.defaultPrevented) {
+        scrollToSection(href, e);
+      }
+    };
+
+    if (isExternal || isHash) {
       return (
         <a
           ref={ref as React.Ref<HTMLAnchorElement>}
@@ -86,7 +93,7 @@ export const Button = React.forwardRef<
           target={target}
           rel={target === "_blank" ? rel || "noopener noreferrer" : rel}
           download={download}
-          onClick={onClick}
+          onClick={handleClick}
           {...anchorRest}
           className={combinedClass}
         >
@@ -99,7 +106,7 @@ export const Button = React.forwardRef<
       <Link
         ref={ref as React.Ref<HTMLAnchorElement>}
         href={href}
-        onClick={onClick}
+        onClick={handleClick}
         {...anchorRest}
         className={combinedClass}
       >
@@ -107,6 +114,7 @@ export const Button = React.forwardRef<
       </Link>
     );
   }
+
 
   // Otherwise render native <button>
   const {

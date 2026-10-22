@@ -1,23 +1,29 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Button, Logo } from "@/components";
+import { navLinks } from "@/config";
+import { scrollToSection } from "@/utils";
 import styles from "./Header.module.css";
 
-export const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Tools & Stack", href: "#tools-stack" },
-  { name: "How I Work", href: "#how-i-work" },
-  { name: "Contact", href: "#contact" },
-];
+export { navLinks };
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
+
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href.startsWith("#")) {
+      scrollToSection(href, e);
+    }
+    setIsMenuOpen(false);
+  };
+
 
   useEffect(() => {
     const sectionIds = navLinks.map((link) => link.href.replace("#", ""));
@@ -121,12 +127,13 @@ const Header = () => {
               const isActive = activeSection === link.href.replace("#", "");
               return (
                 <li key={link.name}>
-                  <Link
+                  <a
                     href={link.href}
                     className={isActive ? styles.activeLink : ""}
+                    onClick={(e) => handleNavClick(e, link.href)}
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               );
             })}
@@ -161,16 +168,16 @@ const Header = () => {
               const isActive = activeSection === link.href.replace("#", "");
               return (
                 <li key={link.name} className={styles.mobileNavItem}>
-                  <Link
+                  <a
                     href={link.href}
                     className={`${styles.mobileNavLink} ${isActive ? styles.mobileNavLinkActive : ""}`}
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => handleNavClick(e, link.href)}
                   >
                     <span className={styles.mobileNavNumber}>
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className={styles.mobileNavName}>{link.name}</span>
-                  </Link>
+                  </a>
                 </li>
               );
             })}

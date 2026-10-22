@@ -1,10 +1,8 @@
 import React from "react";
+import { cn } from "@/utils";
 import { StatItemProps } from "./types";
 import styles from "./StatItem.module.css";
 
-function cn(...classes: (string | undefined | null | false)[]): string {
-  return classes.filter(Boolean).join(" ");
-}
 
 export const StatItem = React.forwardRef<HTMLDivElement, StatItemProps>(
   function StatItem(props, ref) {
