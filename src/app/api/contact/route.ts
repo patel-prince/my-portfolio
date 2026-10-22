@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { sendContactEmails } from "@/lib/email";
+import { appendInquiryToSheet } from "@/lib/sheets";
 
 interface ContactRequestBody {
   name?: string;
@@ -46,15 +47,19 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send dual emails:
-    // 1. Notification to Prince with all form details
-    // 2. Personalized Thank-You auto-reply to the user
-    await sendContactEmails({
+    const sanitizedData = {
       name: name.trim(),
       email: email.trim(),
       subject: subject.trim(),
       message: message.trim(),
-    });
+    };
+
+    // 1. Send dual emails (Notification to Prince + Thank-You to visitor)
+    // 2. Append inquiry row to Google Sheet (if configured)
+    await Promise.allSettled([
+      sendContactEmails(sanitizedData),
+      appendInquiryToSheet(sanitizedData),
+    ]);
 
     return NextResponse.json(
       {
