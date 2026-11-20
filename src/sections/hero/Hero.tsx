@@ -28,7 +28,11 @@ const Hero = () => {
           </Button>
         </div>
         <div className={styles.heroImage}>
-          <Image src={HeroImage} alt="hero" priority />
+          <Image
+            src={HeroImage}
+            alt="Prince Patel - Full Stack Developer"
+            priority
+          />
         </div>
       </div>
     </section>

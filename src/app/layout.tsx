@@ -1,19 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import { siteConfig } from "@/config";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: `${siteConfig.name} | ${siteConfig.role}`,
   description: siteConfig.description,
   keywords: [
@@ -35,11 +33,20 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
     siteName: `${siteConfig.name} Portfolio`,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.name} - ${siteConfig.role}`,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | ${siteConfig.role}`,
     description: siteConfig.description,
+    images: ["/og-image.png"],
   },
   icons: {
     icon: [
@@ -50,13 +57,16 @@ export const metadata: Metadata = {
   },
 };
 
-
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
       data-theme="light"
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className={montserrat.variable}
     >
       <body>{children}</body>
     </html>

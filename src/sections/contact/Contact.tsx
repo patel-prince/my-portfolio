@@ -23,6 +23,7 @@ const Contact: React.FC = () => {
     email: "",
     subject: "",
     message: "",
+    _hp: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<{
@@ -59,7 +60,7 @@ const Contact: React.FC = () => {
           message:
             data.message || "Thank you! Your message has been sent successfully.",
         });
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", _hp: "" });
         setTimeout(() => {
           setStatus({ type: "idle" });
         }, 5000);
@@ -155,6 +156,20 @@ const Contact: React.FC = () => {
           {/* Right Column: Contact Form */}
           <div className={styles.rightColumn}>
             <form onSubmit={handleSubmit} className={styles.contactForm}>
+              {/* Bot honeypot field (hidden from real users) */}
+              <div style={{ display: "none" }} aria-hidden="true">
+                <label htmlFor="contact-hp">Leave this empty</label>
+                <input
+                  id="contact-hp"
+                  name="_hp"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={formData._hp}
+                  onChange={handleChange}
+                />
+              </div>
+
               {/* Row 1: Name & Email */}
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
