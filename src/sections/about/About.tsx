@@ -1,4 +1,7 @@
+"use client";
+
 import { FiDownload } from "react-icons/fi";
+import { track } from "@vercel/analytics";
 import {
   Button,
   SectionTagline,
@@ -49,6 +52,11 @@ const About = () => {
               size="lg"
               className={styles.aboutBtn}
               icon={<FiDownload size={18} />}
+              onClick={() => {
+                try {
+                  track("download_cv", { location: "about_section" });
+                } catch {}
+              }}
             >
               DOWNLOAD CV
             </Button>

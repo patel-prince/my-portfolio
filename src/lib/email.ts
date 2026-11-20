@@ -5,6 +5,8 @@ export interface ContactEmailPayload {
   email: string;
   subject: string;
   message: string;
+  location?: string;
+  referer?: string;
 }
 
 /**
@@ -40,6 +42,8 @@ export function buildAdminNotificationEmail(data: ContactEmailPayload) {
   const safeEmail = escapeHtml(data.email);
   const safeSubject = escapeHtml(data.subject);
   const safeMessage = escapeHtml(data.message);
+  const safeLocation = escapeHtml(data.location || "Direct / Unknown");
+  const safeReferer = escapeHtml(data.referer || "Direct");
   const now = new Date().toLocaleString("en-US", {
     dateStyle: "full",
     timeStyle: "short",
@@ -53,6 +57,8 @@ New message received from your portfolio:
 Sender: ${data.name}
 Email: ${data.email}
 Subject: ${data.subject}
+Location: ${data.location || "Direct / Unknown"}
+Source: ${data.referer || "Direct"}
 Date: ${now}
 
 Message:
@@ -90,6 +96,14 @@ To reply directly to ${data.name}, reply to this email or write to ${data.email}
         <tr>
           <td style="padding:8px 0; color:#71717a; font-weight:600;">Email:</td>
           <td style="padding:8px 0;"><a href="mailto:${safeEmail}" style="color:#09090b; text-decoration:underline;">${safeEmail}</a></td>
+        </tr>
+        <tr>
+          <td style="padding:8px 0; color:#71717a; font-weight:600;">Location:</td>
+          <td style="padding:8px 0; color:#09090b;">${safeLocation}</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 0; color:#71717a; font-weight:600;">Source:</td>
+          <td style="padding:8px 0; color:#71717a;">${safeReferer}</td>
         </tr>
         <tr>
           <td style="padding:8px 0; color:#71717a; font-weight:600;">Received:</td>

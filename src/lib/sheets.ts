@@ -3,6 +3,8 @@ export interface SheetInquiryPayload {
   email: string;
   subject: string;
   message: string;
+  location?: string;
+  referer?: string;
 }
 
 /**

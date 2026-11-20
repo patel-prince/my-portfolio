@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { FaLinkedinIn, FaGithub, FaWhatsapp } from "react-icons/fa6";
 import { FiMail, FiSend } from "react-icons/fi";
+import { track } from "@vercel/analytics";
 import {
   Button,
   SectionTagline,
@@ -55,6 +56,9 @@ const Contact: React.FC = () => {
       const data = await res.json();
 
       if (res.ok && data.success) {
+        try {
+          track("contact_form_submitted", { subject: formData.subject });
+        } catch {}
         setStatus({
           type: "success",
           message:
@@ -124,6 +128,11 @@ const Contact: React.FC = () => {
                 size="md"
                 aria-label="LinkedIn Profile"
                 icon={<FaLinkedinIn size={18} aria-hidden="true" />}
+                onClick={() => {
+                  try {
+                    track("click_social", { platform: "linkedin" });
+                  } catch {}
+                }}
               />
 
               <CircleIconButton
@@ -133,6 +142,11 @@ const Contact: React.FC = () => {
                 size="md"
                 aria-label="GitHub Profile"
                 icon={<FaGithub size={18} aria-hidden="true" />}
+                onClick={() => {
+                  try {
+                    track("click_social", { platform: "github" });
+                  } catch {}
+                }}
               />
 
               <CircleIconButton
@@ -140,6 +154,11 @@ const Contact: React.FC = () => {
                 size="md"
                 aria-label="Send an Email"
                 icon={<FiMail size={18} aria-hidden="true" />}
+                onClick={() => {
+                  try {
+                    track("click_social", { platform: "email" });
+                  } catch {}
+                }}
               />
 
               <CircleIconButton
@@ -149,6 +168,11 @@ const Contact: React.FC = () => {
                 size="md"
                 aria-label="Chat on WhatsApp"
                 icon={<FaWhatsapp size={19} aria-hidden="true" />}
+                onClick={() => {
+                  try {
+                    track("click_social", { platform: "whatsapp" });
+                  } catch {}
+                }}
               />
             </div>
           </div>

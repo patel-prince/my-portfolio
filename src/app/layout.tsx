@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import { siteConfig } from "@/config";
 import "./globals.css";
 
@@ -68,7 +69,10 @@ export default function RootLayout({
       data-theme="light"
       className={montserrat.variable}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

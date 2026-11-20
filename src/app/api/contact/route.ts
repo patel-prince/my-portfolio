@@ -59,11 +59,19 @@ export async function POST(request: Request) {
       );
     }
 
+    const country = request.headers.get("x-vercel-ip-country") || "";
+    const city = request.headers.get("x-vercel-ip-city") || "";
+    const location =
+      [city, country].filter(Boolean).join(", ") || "Direct / Unknown";
+    const referer = request.headers.get("referer") || "Direct";
+
     const sanitizedData = {
       name: name.trim(),
       email: email.trim(),
       subject: subject.trim(),
       message: message.trim(),
+      location,
+      referer,
     };
 
     // 3. Dispatch dual emails and Google Sheets entry in parallel

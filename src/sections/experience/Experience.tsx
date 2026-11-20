@@ -1,4 +1,7 @@
+"use client";
+
 import WavesBg from "@/assets/waves.png";
+import { track } from "@vercel/analytics";
 import {
   Button,
   SectionTagline,
@@ -58,6 +61,11 @@ const Experience = () => {
                 rel="noopener noreferrer"
                 size="lg"
                 className={styles.resumeBtn}
+                onClick={() => {
+                  try {
+                    track("view_resume", { location: "experience_section" });
+                  } catch {}
+                }}
               >
                 VIEW FULL RESUME
               </Button>
