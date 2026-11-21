@@ -12,12 +12,15 @@ const Hero = () => {
     >
       <div className="container flex h-full">
         <div className={styles.heroContent}>
-          <h2 className={`${styles.heroTitle} text-8xl flex flex-col`}>
+          <h1 className={`${styles.heroTitle} text-8xl flex flex-col`}>
+            <span className="sr-only">
+              Prince Patel - Senior Full Stack &amp; Web UI Developer
+            </span>
             <span className="text-center weight-600">DESIGNED</span>
             <span className="text-center weight-200">FOR PEOPLE</span>
             <span className="text-center weight-600">ENGINEERED</span>
             <span className="text-center weight-200">FOR REAL WORLD</span>
-          </h2>
+          </h1>
           <p className="max-w-500 weight-400">
             I bridge product thinking and engineering to create digital
             experiences that are simple on the surface but powerful under
@@ -30,7 +33,7 @@ const Hero = () => {
         <div className={styles.heroImage}>
           <Image
             src={HeroImage}
-            alt="Prince Patel - Full Stack Developer"
+            alt="Prince Patel - Senior Full Stack & Web UI Developer"
             priority
           />
         </div>
