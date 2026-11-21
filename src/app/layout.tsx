@@ -14,17 +14,23 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: `${siteConfig.name} | ${siteConfig.role}`,
+  title: siteConfig.title,
   description: siteConfig.description,
   keywords: [
     "Prince Patel",
-    "Full Stack Developer",
-    "Web UI Developer",
-    "React",
-    "Next.js",
-    "TypeScript",
-    "Frontend Engineer",
-    "Portfolio",
+    "Prince Patel Portfolio",
+    "Prince Patel Globant",
+    "Senior Full Stack Developer",
+    "Senior Web UI Developer",
+    "Senior React Developer",
+    "Next.js Developer",
+    "TypeScript Engineer",
+    "Frontend Architect",
+    "Full Stack Engineer Ahmedabad",
+    "Remote React Developer",
+    "React Node.js Developer",
+    "Hire Senior React Developer",
+    "Web Application Developer",
   ],
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
   creator: siteConfig.name,
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: siteConfig.url,
-    title: `${siteConfig.name} | ${siteConfig.role}`,
+    title: siteConfig.title,
     description: siteConfig.description,
     siteName: `${siteConfig.name} Portfolio`,
     images: [
@@ -46,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} | ${siteConfig.role}`,
+    title: siteConfig.title,
     description: siteConfig.description,
     images: ["/og-image.png"],
   },
@@ -57,6 +63,59 @@ export const metadata: Metadata = {
     ],
     apple: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteConfig.url}/#person`,
+      name: siteConfig.name,
+      jobTitle: siteConfig.role,
+      url: siteConfig.url,
+      image: `${siteConfig.url}/og-image.png`,
+      sameAs: [
+        siteConfig.social.linkedin,
+        siteConfig.social.github,
+      ],
+      knowsAbout: [
+        "React",
+        "Next.js",
+        "TypeScript",
+        "JavaScript",
+        "Node.js",
+        "Web UI Development",
+        "Frontend Architecture",
+        "REST APIs",
+        "Full Stack Development",
+        "Tailwind CSS",
+        "Ant Design",
+        "Material UI",
+        "PostgreSQL",
+        "MySQL",
+      ],
+      worksFor: {
+        "@type": "Organization",
+        name: "Globant India Pvt. Ltd.",
+      },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Ahmedabad",
+        addressCountry: "India",
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteConfig.url}/#website`,
+      url: siteConfig.url,
+      name: siteConfig.title,
+      description: siteConfig.description,
+      publisher: {
+        "@id": `${siteConfig.url}/#person`,
+      },
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -71,6 +130,10 @@ export default function RootLayout({
       className={montserrat.variable}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
         <Analytics />
         <SpeedInsights />

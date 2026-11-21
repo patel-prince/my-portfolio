@@ -24,10 +24,10 @@ export interface SiteConfig {
 
 export const siteConfig: SiteConfig = {
   name: "Prince Patel",
-  title: "Prince Patel | Full Stack Developer",
-  role: "Full Stack Developer",
+  title: "Prince Patel | Senior Full Stack & Web UI Developer",
+  role: "Senior Full Stack & Web UI Developer",
   description:
-    "Full Stack Developer with 9+ years of experience bridging product thinking and engineering to create simple, resilient, and performant digital experiences.",
+    "Senior Full Stack & Web UI Developer with 9+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and Node.js.",
   url: "https://princepatel.dev",
   phone: "+91 9974270604",
   resumeUrl: "/resume.pdf",
