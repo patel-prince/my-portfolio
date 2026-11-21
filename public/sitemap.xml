@@ -66,4 +66,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
+
+  <!-- Google Site Verification File -->
+  <url>
+    <loc>https://princepatel.dev/google4160d995dcb1f34e.html</loc>
+    <lastmod>2026-11-21T16:44:00+00:00</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.10</priority>
+  </url>
 </urlset>

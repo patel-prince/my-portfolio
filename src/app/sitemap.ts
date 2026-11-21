@@ -52,5 +52,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.75,
     },
+    {
+      url: `${baseUrl}/google4160d995dcb1f34e.html`,
+      lastModified: lastMod,
+      changeFrequency: "yearly",
+      priority: 0.1,
+    },
   ];
 }
