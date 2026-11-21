@@ -19,6 +19,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  verification: {
+    google: "ZdTyJSKWppaYGtu9aw1nJ5qJpplf7nvenJ8WTib6jnA",
+  },
   keywords: [
     "Prince Patel",
     "Prince Patel Portfolio",
