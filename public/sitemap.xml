@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://princepatel.dev</loc>
-<lastmod>2026-11-21T16:21:46.554Z</lastmod>
-<changefreq>monthly</changefreq>
-<priority>1</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage Primary Entry with Google Image Extensions -->
+  <url>
+    <loc>https://princepatel.dev/</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://princepatel.dev/og-image.png</image:loc>
+      <image:title>Prince Patel - Senior Full Stack &amp; Web UI Developer</image:title>
+      <image:caption>Portfolio preview showing 9+ years experience across React, Next.js, TypeScript, and Node.js</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://princepatel.dev/logo-with-text.png</image:loc>
+      <image:title>Prince Patel Logo</image:title>
+      <image:caption>Prince Patel - Full Stack Developer</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Resume / Curriculum Vitae Document -->
+  <url>
+    <loc>https://princepatel.dev/resume.pdf</loc>
+    <lastmod>2026-11-20T19:16:51+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- About Me Section -->
+  <url>
+    <loc>https://princepatel.dev/#about</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Work Experience Section (Globant, Silicon IT Hub, Brainbees) -->
+  <url>
+    <loc>https://princepatel.dev/#experience</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Technical Expertise & Tools (React, Next.js, TypeScript, Node.js) -->
+  <url>
+    <loc>https://princepatel.dev/#tools-stack</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <!-- Engineering Approach & How I Work -->
+  <url>
+    <loc>https://princepatel.dev/#how-i-work</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- Contact & Direct Inquiries -->
+  <url>
+    <loc>https://princepatel.dev/#contact</loc>
+    <lastmod>2026-11-21T16:35:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
 </urlset>
