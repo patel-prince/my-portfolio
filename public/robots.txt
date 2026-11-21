@@ -2,4 +2,4 @@ User-Agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://princepatel.dev/sitemap.xml
+Sitemap: https://prince-patel.vercel.app/sitemap.xml

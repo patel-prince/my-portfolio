@@ -28,7 +28,7 @@ export const siteConfig: SiteConfig = {
   role: "Senior Full Stack & Web UI Developer",
   description:
     "Senior Full Stack & Web UI Developer with 9+ years of experience building scalable, high-performance web applications using React, Next.js, TypeScript, and Node.js.",
-  url: "https://princepatel.dev",
+  url: "https://prince-patel.vercel.app",
   phone: "+91 9974270604",
   resumeUrl: "/resume.pdf",
   resumeFileName: "Prince_Patel_CV.pdf",

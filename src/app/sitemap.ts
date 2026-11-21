@@ -23,36 +23,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/#about`,
-      lastModified: lastMod,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#experience`,
-      lastModified: lastMod,
-      changeFrequency: "monthly",
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/#tools-stack`,
-      lastModified: lastMod,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#how-i-work`,
-      lastModified: lastMod,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified: lastMod,
-      changeFrequency: "monthly",
-      priority: 0.75,
-    },
-    {
       url: `${baseUrl}/google4160d995dcb1f34e.html`,
       lastModified: lastMod,
       changeFrequency: "yearly",
